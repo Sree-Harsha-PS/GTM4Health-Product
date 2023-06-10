@@ -22,43 +22,42 @@
 
 🚀 Follow the steps below to get started with GTM4Health:
 
-1. **Clone the repository:**
-   ```shell
-   git clone https://github.com/Sree-Harsha-PS/GTM4Health.git
-2. Change to the project directory:
+## 1. Clone the repository:
+   shell
+         git clone https://github.com/Sree-Harsha-PS/GTM4Health.git
+## 2. Change to the project directory:
 
   shell code:  
-  cd GTM4Health
+         cd GTM4Health
 
-3. Install the dependencies for both the server and client:
+##3. Install the dependencies for both the server and client:
 
+  ### Install server dependencies
   shell:
-  # Install server dependencies
-  
-  cd server
-  npm install
+     cd server
+     npm install
 
-  # Install client dependencies
-  
-  cd ../client
-  npm install
-  Set up environment variables:
+  ### Install client dependencies
+     cd ../client
+     npm install
+  For Set up environment variables follow:
 
-# 4. Create a .env file in the server directory.
+## 4. Create a .env file in the server directory.
   Add the following environment variables and their corresponding values:
+  
   PORT=3001
   MONGODB_URI=<your-mongodb-connection-string>
   Replace <your-mongodb-connection-string> with your actual MongoDB connection string.
   
- # 5. Build the client:
+ ## 5. Build the client:
 
 shell:
-cd client
--npm run build
-Start the server:
-shell:
--cd ../server
--npm start
+      cd client
+      npm run build
+ ### Start the server:
+      shell:
+         cd ../server
+         npm start
 The server will start running on http://localhost:3001.
 
 ## Access the application:
