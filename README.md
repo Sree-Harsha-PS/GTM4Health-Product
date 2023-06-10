@@ -67,12 +67,12 @@ cd ../server
 npm start
 The server will start running on http://localhost:3001.
 
-##**Access the application**:
+## Access the application:
 
 Open your web browser and navigate to http://localhost:3001 to access GTM4Health.
 
-##**Contributing**
+## Contributing
 🤝 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
-##**License**
+## License
 📄 This project is licensed under the MIT License.
