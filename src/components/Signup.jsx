@@ -1,7 +1,22 @@
-import React from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpButton = () => {
-  return <button className="signup-button">Sign Up</button>;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/signup');
+  };
+
+  return (
+    <div className='button-container'>
+        <button className="signup-button" onClick={handleClick}>
+          Sign Up
+        </button>
+    </div>
+  );
 };
 
 export default SignUpButton;
+
+
