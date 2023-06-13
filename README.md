@@ -50,11 +50,7 @@ This repository contains all the files and folders for the GTM4Health product we
 🚀 Follow the steps below to get started with GTM4Health:
 
 ## 1. Clone the repository:
-<<<<<<< HEAD
-         git clone https://github.com/Sree-Harsha-PS/GTM4Health.git
-=======
          git clone https://github.com/GTM4Health/Product
->>>>>>> gtm/main
 ## 2. Change to the project directory:
          cd GTM4Health
 ## 3. Install the dependencies for both the server and client:
