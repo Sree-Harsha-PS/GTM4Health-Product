@@ -85,15 +85,15 @@ This repository contains all the files and folders for the GTM4Health product we
          cd ../server
          npm start
         
-The server will start running on http://localhost:3001.
+The server will start running on http://localhost:3000.
 
 ## Usage
    Access the application:
 
-Open your web browser and navigate to http://localhost:3001 to access GTM4Health.
+Open your web browser and navigate to http://localhost:3000 to access GTM4Health.
    
 ## Contributers
-   Reach out to above contributers for any reference or to fix any bugs and references of code made.
+   Reach out to above contributers for any reference or to fix any bugs and references of codebase.
 
 ## How to Contribute 
    
