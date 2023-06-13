@@ -1,12 +1,11 @@
 import React from 'react';
 import './styles.css';
-import Logo from './components/Logo';
-import SignUpButton from './components/Signup';
-import LoginButton from './components/Login';
-import RequestDemoButton from './components/Demo';
 import Content from './Content';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
+import Dashboard from './Dashboard';
+
 
 export default function App() {
   return (
@@ -14,6 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
