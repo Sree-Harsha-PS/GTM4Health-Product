@@ -7,7 +7,7 @@ import RequestDemoButton from "./Demo";
 const Header = () => {
     return(
         <div className="toolbar">
-            <Logo />
+            <Logo /> 
             <div className="buttons">
                 <SignUpButton />
                 <LoginButton />
