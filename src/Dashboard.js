@@ -1,18 +1,22 @@
 import React from "react";
-import Card from "./components/Card";
-import cardsData from "./Features.json";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Header2 from "./components/Header2";
+import useAuth from "./components/useAuth";
 
 
 const Dashboard = () => {
+  const isAuthenticated = useAuth();
+
+  if (!isAuthenticated) {
+    // Optional: Show a loading state or return null while checking authentication
+    return null;
+  }
   return (
     <div className="content">
-      <Header />
-      <div className="card-container">
-        {cardsData.map((card, index) => (
-          <Card key={index} title={card.title} features={card.features} />
-        ))}
+      <Header2 />
+      <div className="dashboard">
+        {/* Your protected dashboard content */}
+        <h1>Welcome to the Dashboard!</h1>
       </div>
       <Footer />
     </div>

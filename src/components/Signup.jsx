@@ -10,7 +10,7 @@ const SignUpButton = () => {
 
   return (
     <div className='button-container'>
-        <button className="signup-button" onClick={handleClick}>
+        <button className="sinup" onClick={handleClick}>
           Sign Up
         </button>
     </div>
