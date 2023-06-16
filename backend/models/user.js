@@ -1,5 +1,10 @@
+//File Purpose : 
+// Create a User Object through Signup, fetches all details from FE
+// Connects to Mongodb
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+// Hashing Functions Brcypt and JWT Tokens.[Json Web Tokens]
 require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
