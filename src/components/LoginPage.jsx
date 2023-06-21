@@ -30,39 +30,47 @@ const LoginPage = () => {
     }
   };
 
+  // Redirect to the dashboard if the user is already logged in
+  const isAuthenticated = localStorage.getItem('token');
+  if (isAuthenticated) {
+    navigate('/dashboard');
+  }
+
   return (
     <div>
-      <Header />    
+      <Header />
       <div className="login-container">
         <h1 className="signup-title">Login</h1>
         <form onSubmit={handleLogin}>
-        <div className='centrepage'>
-          <div className="log-field">
-            <label htmlFor="email">&nbsp; &nbsp; &nbsp; &nbsp; Email*&nbsp; :</label>
-            <input
-              type="email"
-              placeholder="Enter Email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="log-field">
-            <label htmlFor="password">Password*&nbsp; :</label>
-            <input
-              type="password"
-              placeholder="Enter Password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <br />
-          <div className="subm-row">
-            <button className='login-btn' type="submit">Login</button>
-          </div>
+          <div className="centrepage">
+            <div className="log-field">
+              <label htmlFor="email">&nbsp; &nbsp; &nbsp; &nbsp; Email*&nbsp; :</label>
+              <input
+                type="email"
+                placeholder="Enter Email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="log-field">
+              <label htmlFor="password">Password*&nbsp; :</label>
+              <input
+                type="password"
+                placeholder="Enter Password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <br />
+            <div className="subm-row">
+              <button className="login-btn" type="submit">
+                Submit
+              </button>
+            </div>
           </div>
         </form>
       </div>

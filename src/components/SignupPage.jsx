@@ -91,17 +91,6 @@ const Signup = () => {
               />
             </div>
             <div className="form-field">
-              <label htmlFor="phone">Phone Number* :</label>
-              <input
-                type="text"
-                placeholder="Enter phone number"
-                id="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-field">
               <label htmlFor="email">Email ID* :</label>
               <input
                 type="email"
@@ -109,6 +98,17 @@ const Signup = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="phone">Phone Number* :</label>
+              <input
+                type="text"
+                placeholder="Enter phone number"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 required
               />
             </div>
@@ -188,7 +188,7 @@ const Signup = () => {
               </label>
             </div>
             <button type="submit" className='btn-signup sbutton' disabled={!agreed}>
-              Sign Up
+              Submit
             </button>
           </div>
         </form>
