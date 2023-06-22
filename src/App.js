@@ -7,6 +7,7 @@ import LoginPage from './components/LoginPage';
 import Dashboard from './Dashboard';
 import Terms from './Terms';
 import Privacy from './Privacy';
+import SettingsPage from './Settings';
 //import PrivateRoute from './components/Privateroute';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
             /> /* Wrap PrivateRoute inside the element prop */
           }
         {/* /> Use PrivateRoute for the dashboard */} 
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />
         <Route path='/privacypolicy' element={<Privacy />} />
       </Routes>

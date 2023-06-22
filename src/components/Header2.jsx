@@ -1,17 +1,18 @@
 import React from "react";
 import Logo from "./Logo";
 import LogoutButton from "./logout";
-import RequestDemoButton from "./Demo";
+import Settings from "./Settings";
 
 const Header2 = () => {
-    return(
-        <div className="toolbar"> 
-            <Logo/>
+    return (
+        <div className="toolbar">
+            <Logo />
             <div className="buttons">
                 <LogoutButton />
-                <RequestDemoButton />
+                <Settings />
+                <i className="fas fa-user-circle fa-4x"></i> {/* Profile icon */}
             </div>
-      </div>
+        </div>
     );
 };
 

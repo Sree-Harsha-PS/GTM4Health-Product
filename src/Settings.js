@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 
-const Privacy = () => {
+const SettingsPage = () => {
     const Title = "Privacy Policy"
     const Features = ["feature one","feature two","feature three","feature four","feature five","feature six",]
   return (
@@ -18,4 +18,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default SettingsPage;
