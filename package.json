@@ -21,13 +21,17 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
+    "concurrently": "^8.2.0",
     "typescript": "4.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "setup-backend-start-frontend-app": "npm install --save-dev concurrently && npm run setup-backend && concurrently \"npm run start-backend\" \"npm start\"",
+    "setup-backend": "cd backend && npm install && npm install bcrypt && npm install jsonwebtoken && cd ..",
+    "start-backend": "node backend/server.js"
   },
   "browserslist": [
     ">0.2%",

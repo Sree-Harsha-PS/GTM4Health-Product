@@ -459,3 +459,9 @@ button[type="submit"]:hover {
   padding: 20px;
   margin-bottom: 100px; /* Adjust this value based on the footer height */
 }
+
+.search-icon{
+  top: 20px;
+  padding-top: 15px;
+  bottom: 20px;
+}
