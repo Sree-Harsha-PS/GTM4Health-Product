@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./components/Footer";
 import Header2 from "./components/Header2";
 import useAuth from "./components/useAuth";
-
+import MenuBar from "./components/MenuBar";
 
 const Dashboard = () => {
   const isAuthenticated = useAuth();
@@ -11,14 +11,19 @@ const Dashboard = () => {
     // Optional: Show a loading state or return null while checking authentication
     return null;
   }
+
   return (
+    <div>
+    <Header2 />
     <div className="content">
-      <Header2 />
       <div className="dashboard">
-        {/* Your protected dashboard content */}
-        <h1>Welcome to the GTM4Health!</h1>
+        <MenuBar />
+        <div className="dashboard-content">
+          <h1>Welcome to the GTM4Health!</h1>
+        </div>
       </div>
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 };

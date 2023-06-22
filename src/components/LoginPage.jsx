@@ -7,6 +7,7 @@ import Footer from './Footer';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [hasLoggedInBefore, setHasLoggedInBefore] = useState(false);
 
   const navigate = useNavigate();
 

@@ -414,3 +414,47 @@ button[type="submit"]:hover {
   text-decoration: none; 
   color: #34aad9;
  }
+
+ /* menubar.css */
+ .menu-bar {
+  background-color: lightblue;
+  color: darkblue;
+  width: 250px;
+  height: 100vh ; /* Adjust the value (220px) based on the combined height of the header and footer */
+  position: fixed;
+  left: 0;
+  top: 120px; /* Adjust the value based on the header height */
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto; /* Add scroll functionality if the content exceeds the menu height */
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  border-bottom: 1px solid darkblue;
+}
+
+.menu-item-btm {
+  display: flex;
+  align-items: center;
+  padding: 36px;
+}
+
+.menu-text {
+  margin-left: 25px;
+}
+
+.dashboard {
+  margin-left: 250px; /* Adjust this value based on the menu bar width */
+  padding: 20px;
+}
+
+.content {
+  margin-left: 250px; /* Adjust this value based on the menu bar width */
+  padding: 20px;
+  margin-bottom: 100px; /* Adjust this value based on the footer height */
+}
