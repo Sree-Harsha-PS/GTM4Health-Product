@@ -4,8 +4,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 
-const SettingsPage = () => {
-    const Title = "Settings"
+const HelpPage = () => {
+    const Title = "Help"
     const Features = ["feature one","feature two","feature three","feature four","feature five","feature six",]
   return (
     <div className="content">
@@ -18,4 +18,4 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default HelpPage;

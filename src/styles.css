@@ -415,20 +415,21 @@ button[type="submit"]:hover {
   color: #34aad9;
  }
 
- /* menubar.css */
+ /*menu-bar*/
+
  .menu-bar {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
-  height: 100vh ; /* Adjust the value (220px) based on the combined height of the header and footer */
-  position: fixed;
+  height: 80vh; /* Adjust the value based on the combined height of the header and footer */
+  position: absolute;
   left: 0;
-  top: 120px; /* Adjust the value based on the header height */
-  bottom: 100px;
+  top: 150px; /* Adjust the value based on the header height */
+  bottom: 100px; /* Adjust the value based on the footer height */
   display: flex;
   flex-direction: column;
   padding: 10px;
-  overflow-y: auto; /* Add scroll functionality if the content exceeds the menu height */
+  overflow-y: auto;
 }
 
 .menu-item {
@@ -453,7 +454,7 @@ button[type="submit"]:hover {
   padding: 20px;
 }
 
-.content {
+.d-content {
   margin-left: 250px; /* Adjust this value based on the menu bar width */
   padding: 20px;
   margin-bottom: 100px; /* Adjust this value based on the footer height */

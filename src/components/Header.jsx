@@ -11,7 +11,8 @@ const Header = () => {
             <div className="buttons">
                 <SignUpButton />
                 <LoginButton />
-                <RequestDemoButton />
+                {/* <RequestDemoButton /> */}
+                {/* //deprecated */}
             </div>
       </div>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import MenuBar from "./components/MenuBar";
 
 
 const SettingsPage = () => {
@@ -10,6 +11,7 @@ const SettingsPage = () => {
   return (
     <div className="content">
       <Header />
+      <MenuBar />
       <div className="card-container">
         <Card title = {Title} features = {Features} />
       </div>

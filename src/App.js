@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Terms from './Terms';
 import Privacy from './Privacy';
 import SettingsPage from './Settings';
+import HelpPage from './Help';
 //import PrivateRoute from './components/Privateroute';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
             /> /* Wrap PrivateRoute inside the element prop */
           }
         {/* /> Use PrivateRoute for the dashboard */} 
+        <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />
         <Route path='/privacypolicy' element={<Privacy />} />

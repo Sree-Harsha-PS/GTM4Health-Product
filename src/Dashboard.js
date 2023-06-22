@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div>
     <Header2 />
-    <div className="content">
+    <div className="d-content">
       <div className="dashboard">
         <MenuBar />
         <div className="dashboard-content">
