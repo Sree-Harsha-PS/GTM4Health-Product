@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
@@ -7,12 +7,16 @@ import Footer from './Footer';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [hasLoggedInBefore, setHasLoggedInBefore] = useState(false);
-
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent the default form submission
+
+    // Check if the email and password fields are empty
+    if (!email || !password) {
+      console.log('Email and password are required');
+      return;
+    }
 
     try {
       // Make a POST request to the server to authenticate the user
@@ -21,22 +25,24 @@ const LoginPage = () => {
         password,
       });
 
+      // Check if the login email is the master email
+      const isAdmin = email === 'abc@master.com';
+
       // Store the token in local storage
       localStorage.setItem('token', response.data.token);
 
-      // Redirect to the dashboard
-      navigate('/dashboard');
+      // Store the admin flag in local storage
+      localStorage.setItem('isAdmin', isAdmin);
+
+      // Redirect to the appropriate dashboard (admin or user)
+      navigate(isAdmin ? '/admin' : '/dashboard');
     } catch (error) {
       console.error('Login failed', error);
+      // Clear the entered password field
+      setPassword('');
     }
   };
-
-  // Redirect to the dashboard if the user is already logged in
-  const isAuthenticated = localStorage.getItem('token');
-  if (isAuthenticated) {
-    navigate('/dashboard');
-  }
-
+  
   return (
     <div>
       <Header />
