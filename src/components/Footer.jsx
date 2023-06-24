@@ -6,6 +6,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="left-content">
+          <span className="footer-text">
+            <h1>&copy; 2023 GTM4Health</h1>
+          </span>
           <div className="social-icons">
             <a href="https://www.facebook.com/gtm4health">
               <i className="fab fa-facebook fa-lg"></i>
@@ -18,9 +21,6 @@ const Footer = () => {
             </a>
           </div>
          <br />
-          <span className="footer-text">
-            <h1>&copy; 2023 GTM4Health</h1>
-          </span>
         </div>
         <div className="right-content">
           <span className="footer-text">

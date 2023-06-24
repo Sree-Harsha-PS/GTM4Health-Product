@@ -9,6 +9,8 @@ import Terms from './Terms';
 import Privacy from './Privacy';
 import SettingsPage from './Settings';
 import HelpPage from './Help';
+import AdminLoginPage from './components/AdminLogin';
+import AdminDashboard from './AdminDash';
 //import PrivateRoute from './components/Privateroute';
 
 export default function App() {
@@ -18,7 +20,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard*"element={<Dashboard />} />
+        <Route path="/dashboard"element={<Dashboard />} />
         {/* <Route
           path="/dashboard*"
           element={
@@ -27,6 +29,8 @@ export default function App() {
             /> /* Wrap PrivateRoute inside the element prop */
           }
         {/* /> Use PrivateRoute for the dashboard */} 
+        <Route path='/admin' element={<AdminLoginPage />} />
+        <Route path='/admin/dashboard' element={<AdminDashboard />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />

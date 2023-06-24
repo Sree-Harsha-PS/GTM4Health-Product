@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 
-const LoginPage = () => {
+const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -19,31 +19,31 @@ const LoginPage = () => {
     }
 
     try {
-      // Make a POST request to the server to authenticate the user
-      const response = await axios.post('http://localhost:5000/api/login', {
+      // Make a POST request to the server to authenticate the admin
+      const response = await axios.post('http://localhost:5000/api/admin/login', {
         email,
         password,
       });
 
-
       // Store the token in local storage
       localStorage.setItem('token', response.data.token);
 
-
       // Redirect to the appropriate dashboard 
-      navigate('/dashboard');
+      navigate('/admin/dashboard');
     } catch (error) {
       console.error('Login failed', error);
       // Clear the entered password field
       setPassword('');
     }
   };
-  
+
   return (
     <div>
       <Header />
       <div className="login-container">
-        <h1 className="signup-title">Login</h1>
+        <h1 className="signup-title">
+          <span className='admin-t'>Admin</span> Login
+        </h1>
         <form onSubmit={handleLogin}>
           <div className="centrepage">
             <div className="log-field">
@@ -82,4 +82,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AdminLoginPage;

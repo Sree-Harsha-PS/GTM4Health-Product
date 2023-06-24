@@ -118,21 +118,53 @@
 .left-content {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  font-size: small;
+  margin: 20px 20px 0px 20px;
 }
 
 .right-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  font-size: small;
+  font-weight: 100;
   padding-left: 10%;
+  margin: 20px 20px 0px 20px;
 }
 
 .footer-text {
-  margin-right: 10px;
+  margin-right: 30px;
   margin-bottom: 10px; /* Adjust the spacing between lines as needed */
 }
 
+
+.social-icons {
+  display: flex;
+  align-items: space-between;
+  color: #34aad9;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.social-icons a {
+  margin-right: 50px;
+  font-size: 24px;
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.dashboard{
+  height: 80vh;
+  width: 100%;
+}
+
+.social-icons a:visited { 
+  text-decoration: none; 
+  color: #34aad9;
+ }
 
 
 /* Signup */
@@ -202,15 +234,17 @@ select {
   margin-bottom: 1rem;
   width: 100%;
   flex-direction: row;
+  margin-left: 40px;
 }
 
 .tnc input[type="checkbox"] {
-  margin-right: 0.5rem;
+  margin-left: 4rem;
 }
 
 .tnc label {
   color: #555;
   font-size: 16px;
+  margin-right: 100px;
 }
 
 
@@ -390,31 +424,6 @@ button[type="submit"]:hover {
   z-index: 9999;
 }
 
-.social-icons {
-  display: flex;
-  align-items: space-between;
-  color: #34aad9;
-}
-
-.social-icons a {
-  margin-right: 50px;
-  font-size: 24px;
-}
-
-.social-icons a:last-child {
-  margin-right: 0;
-}
-
-.dashboard{
-  height: 80vh;
-  width: 100%;
-}
-
-.social-icons a:visited { 
-  text-decoration: none; 
-  color: #34aad9;
- }
-
  /*menu-bar*/
 
  .menu-bar {
@@ -464,4 +473,9 @@ button[type="submit"]:hover {
   top: 20px;
   padding-top: 15px;
   bottom: 20px;
+}
+
+.admin-t{
+  color: #4cf;
+  border: #000;
 }
