@@ -1,8 +1,8 @@
 import React from "react";
 import Footer from "./components/Footer";
-import Header2 from "./components/Header2";
+import AdminHeader from "./components/AdminHeader";
+import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
-import MenuBar from "./components/MenuBar";
 
 const AdminDashboard = () => {
   const isAuthenticated = useAuth();
@@ -14,10 +14,10 @@ const AdminDashboard = () => {
 
   return (
     <div>
-    <Header2 />
+    <AdminHeader />
     <div className="d-content">
       <div className="dashboard">
-        <MenuBar />
+        <AdminMenuBar />
         <div className="dashboard-content">
           <h1>Welcome Admin!</h1>
         </div>
