@@ -11,31 +11,62 @@ const AdminLoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent the default form submission
-
+  
     // Check if the email and password fields are empty
     if (!email || !password) {
       console.log('Email and password are required');
       return;
     }
-
-    try {
-      // Make a POST request to the server to authenticate the admin
-      const response = await axios.post('http://localhost:5000/api/admin/login', {
-        email,
-        password,
-      });
-
-      // Store the token in local storage
-      localStorage.setItem('token', response.data.token);
-
-      // Redirect to the appropriate dashboard 
-      navigate('/admin/dashboard');
-    } catch (error) {
-      console.error('Login failed', error);
-      // Clear the entered password field
-      setPassword('');
+  
+    // Check if the entered email and password match the predefined values
+    if (email === 'a@a' && password === '123') {
+      try {
+        // Simulate the API response with a delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+  
+        // Store the token in local storage
+        localStorage.setItem('token', 'your_token_here');
+  
+        // Redirect to the appropriate dashboard 
+        navigate('/admin/dashboard');
+      } catch (error) {
+        console.error('Login failed', error);
+        // Clear the entered password field
+        setPassword('');
+      }
+    } else {
+      console.log('Invalid email or password');
     }
   };
+  
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault(); // Prevent the default form submission
+
+  //   // Check if the email and password fields are empty
+  //   if (!email || !password) {
+  //     console.log('Email and password are required');
+  //     return;
+  //   }
+
+  //   try {
+  //     // Make a POST request to the server to authenticate the admin
+  //     const response = await axios.post('http://localhost:5000/api/admin/login', {
+  //       email,
+  //       password,
+  //     });
+
+  //     // Store the token in local storage
+  //     localStorage.setItem('token', response.data.token);
+
+  //     // Redirect to the appropriate dashboard 
+  //     navigate('/admin-dashboard');
+  //   } catch (error) {
+  //     console.error('Login failed', error);
+  //     // Clear the entered password field
+  //     setPassword('');
+  //   }
+  // };
 
   return (
     <div>

@@ -11,7 +11,6 @@ const SettingsPage = () => {
   return (
     <div className="content">
       <Header2 />
-      <MenuBar />
       <div className="card-container">
         <Card title = {Title} features = {Features} />
       </div>

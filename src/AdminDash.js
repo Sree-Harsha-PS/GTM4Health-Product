@@ -19,7 +19,7 @@ const AdminDashboard = () => {
       <div className="dashboard">
         <MenuBar />
         <div className="dashboard-content">
-          <h1>Welcome to the GTM4Health!</h1>
+          <h1>Welcome Admin!</h1>
         </div>
       </div>
     </div>
