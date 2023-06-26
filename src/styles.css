@@ -482,7 +482,7 @@ button[type="submit"]:hover {
 
 /*admin menubar*/
 
- .a-menu-bar {
+ .adbar {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
@@ -498,23 +498,36 @@ button[type="submit"]:hover {
 }
 
 .menu-item {
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  border-bottom: 1px solid darkblue;
+  transition: all 0.5s;
 }
 
-.menu-item-btm {
-  display: flex;
-  align-items: center;
-  padding: 36px;
+.menu-item:hover {
+  color: white;
+  background-color: #05BFDB;
+  transform: scale(1.2);
+  /* Add any other desired styles for the hover effect */
 }
 
-.menu-text {
-  margin-left: 25px;
+.menu-item-btm:hover{
+  color: white;
+  background-color: #05BFDB;
+  transform: scale(1.2);
+  /* Add any other desired styles for the hover effect */
 }
 
-.dashboard {
-  margin-left: 250px; /* Adjust this value based on the menu bar width */
-  padding: 20px;
+.menu-link{
+  text-decoration: none;
+  background-color: lightblue;
+  color: darkblue;
 }
+
+.menu-link:active .menu-link {
+  background-color: lightblue;
+  color: darkblue;
+}
+
+.menu-link:visited {
+  background-color: lightblue;
+  color: darkblue;
+}
+

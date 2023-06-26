@@ -2,13 +2,17 @@ import React from "react";
 
 const AdminMenuBar = () => {
   return (
-    <div className="a-menu-bar">
-      <div className="menu-item">
-        <span className="menu-text">User Dashboard</span>
-      </div>
-      <div className="menu-item">
-        <span className="menu-text">Features</span>
-      </div>
+    <div className="menu-bar adbar">
+      <a href="/admin-dashboard/User-Dashboard" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">User Dashboard</span>
+        </div>
+      </a>
+      <a href="/admin-dashboard/Features" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">Features</span>
+        </div>
+      </a>
     </div>
   );
 };
