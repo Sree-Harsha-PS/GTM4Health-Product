@@ -73,7 +73,7 @@ const AdminLoginPage = () => {
       <Header />
       <div className="login-container">
         <h1 className="signup-title">
-          <span className='admin-t'>Admin</span> Login
+          <span className='blue-t'>Admin</span> Login
         </h1>
         <form onSubmit={handleLogin}>
           <div className="centrepage">

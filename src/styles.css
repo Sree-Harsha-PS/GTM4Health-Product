@@ -475,7 +475,7 @@ button[type="submit"]:hover {
   bottom: 20px;
 }
 
-.admin-t{
+.blue-t{
   color: #4cf;
   border: #000;
 }
@@ -519,7 +519,7 @@ button[type="submit"]:hover {
   text-decoration: none;
   background-color: lightblue;
   color: darkblue;
-  
+
 }
 
 .menu-link:active .menu-link {

@@ -2,16 +2,18 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser'); // Add this line
 require('dotenv').config();
 
 // Set up Express.js server
 const app = express();
-const port = 5000; // Replace with your desired port number
+const port = 5000;
 
 // Enable CORS
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false })); // Add this line
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
@@ -28,10 +30,12 @@ db.once('open', () => {
 // Import routes
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const hospitalRouter = require('./routes/hospital'); // Add this line
 
 // Use routes
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/hospital', hospitalRouter); // Add this line
 
 // Start the server
 app.listen(port, () => {
