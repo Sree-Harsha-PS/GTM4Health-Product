@@ -18,6 +18,11 @@ const AdminMenuBar = () => {
           <span className="menu-text">Add Hospitals</span>
         </div>
       </a>
+      <a href="/admin/dashboard/View-Hospital" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">View Hospitals</span>
+        </div>
+      </a>
     </div>
   );
 };
