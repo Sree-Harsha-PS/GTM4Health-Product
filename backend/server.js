@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser'); // Add this line
+const bodyParser = require('body-parser'); 
 require('dotenv').config();
 
 // Set up Express.js server
@@ -30,12 +30,15 @@ db.once('open', () => {
 // Import routes
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
-const hospitalRouter = require('./routes/hospital'); // Add this line
+const hospitalRouter = require('./routes/hospital'); 
+const adminLoginRouter = require('./routes/adminlogin');
 
 // Use routes
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
-app.use('/api/hospital', hospitalRouter); // Add this line
+app.use('/api/admin/hospital', hospitalRouter); 
+app.use('/api/admin', adminLoginRouter);
+
 
 // Start the server
 app.listen(port, () => {

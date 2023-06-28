@@ -3,13 +3,12 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
-const User = require('../models/user');
 
 // Create an instance of the express router
 const router = express.Router();
 
 // Admin login route
-router.post('/api/admin/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   console.log('Received login request:', email, password);

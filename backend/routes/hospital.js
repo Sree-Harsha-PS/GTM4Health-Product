@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const HospitalModel = require('../models/hospital'); // Create the HospitalModel schema
+const Hospital = require('../models/hospital'); // Import the Hospital model
 
 // Create a new hospital
 router.post('/', async (req, res) => {
   try {
     const { name, city } = req.body;
-    const hospital = new HospitalModel({ name, city });
+    const hospital = new Hospital({ name, city });
     await hospital.save();
     res.status(201).json({ message: 'Hospital created successfully' });
   } catch (error) {

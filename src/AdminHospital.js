@@ -30,20 +30,24 @@ const Hospital = () => {
           <AdminMenuBar />
           <div className="dashboard-content">
             <h1>Welcome Admin!</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="hospital-f">
+              <select required value={city} onChange={(e) => setCity(e.target.value)}>
+                <option disabled hidden value="">Select City</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Mangalore">Mangalore</option>
+                <option value="Mysore">Mysore</option>
+                <option value="Davanagere">Davanagere</option>
+                <option value="Shivamogga">Shivamogga</option>
+                <option value="Belgaum">Belgaum</option>
+              </select>
               <input
                 type="text"
+                required
                 placeholder="Hospital Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="Hospital City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-              <button type="submit">Submit</button>
+              <button type="submit" name="hsubtn">Submit</button>
             </form>
           </div>
         </div>

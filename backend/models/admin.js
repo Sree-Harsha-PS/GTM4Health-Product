@@ -4,11 +4,12 @@ const adminLoginSchema = new mongoose.Schema({
   adminEmail: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   loginDate: {
     type: Date,
     default: Date.now,
+    unique: true,
   },
 });
 

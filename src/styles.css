@@ -459,7 +459,7 @@ button[type="submit"]:hover {
 }
 
 .dashboard {
-  margin-left: 250px; /* Adjust this value based on the menu bar width */
+  /* margin-left: 250px; Adjust this value based on the menu bar width */
   padding: 20px;
 }
 
@@ -486,7 +486,7 @@ button[type="submit"]:hover {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
-  height: 30vh; /* Adjust the value based on the combined height of the header and footer */
+  height: 80vh; /* Adjust the value based on the combined height of the header and footer */
   position: absolute;
   left: 0;
   top: 150px; /* Adjust the value based on the header height */
@@ -532,3 +532,22 @@ button[type="submit"]:hover {
   color: darkblue;
 }
 
+/*Hospital*/
+
+.hospital-f {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  gap: 10px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.dashboard-content{
+  margin-left: 300px;
+  max-width: 600px;
+}
+
+.hsubtn{
+  width: 50%;
+}
