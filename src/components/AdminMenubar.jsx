@@ -13,9 +13,9 @@ const AdminMenuBar = () => {
           <span className="menu-text">Features</span>
         </div>
       </a>
-      <a href="/admin/dashboard/Hospital" className="menu-link">
+      <a href="/admin/dashboard/Add-Hospital" className="menu-link">
         <div className="menu-item">
-          <span className="menu-text">Hospitals</span>
+          <span className="menu-text">Add Hospitals</span>
         </div>
       </a>
     </div>

@@ -11,14 +11,18 @@ const Hospital = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting hospital form'); 
+    console.log('Name:', name);
+    console.log('City:', city);
     try {
-      await axios.post('/api/hospital', { name, city });
+      await axios.post('http://localhost:5000/api/admin/dashboard/Add-Hospital', { name, city });
       setName('');
       setCity('');
       // Optionally show a success message or perform any other actions
     } catch (error) {
       console.error(error);
-      // Optionally show an error message or perform any other error handling
+      console.log('Error response:', error.response);
+      // show an error message or perform any other error handling
     }
   };
 
@@ -47,7 +51,7 @@ const Hospital = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <button type="submit" name="hsubtn">Submit</button>
+              <button type="submit" className="hsubtn">Submit</button>
             </form>
           </div>
         </div>

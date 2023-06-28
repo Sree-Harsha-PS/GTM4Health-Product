@@ -32,7 +32,7 @@ export default function App() {
         {/* /> Use PrivateRoute for the dashboard */} 
         <Route path='/admin' element={<AdminLoginPage />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
-        <Route path='admin/dashboard/Hospital' element={<Hospital />} />
+        <Route path='admin/dashboard/Add-Hospital' element={<Hospital />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />

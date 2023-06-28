@@ -36,8 +36,8 @@ const adminLoginRouter = require('./routes/adminlogin');
 // Use routes
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
-app.use('/api/admin/hospital', hospitalRouter); 
 app.use('/api/admin', adminLoginRouter);
+app.use('/api/admin/dashboard/Add-Hospital', hospitalRouter); 
 
 
 // Start the server

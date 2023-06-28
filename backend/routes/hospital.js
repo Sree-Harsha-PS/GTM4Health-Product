@@ -5,9 +5,10 @@ const Hospital = require('../models/hospital'); // Import the Hospital model
 // Create a new hospital
 router.post('/', async (req, res) => {
   try {
+    console.log('Hospital creation request received'); 
     const { name, city } = req.body;
     const hospital = new Hospital({ name, city });
-    await hospital.save();
+    const savedHospital = await hospital.save();
     res.status(201).json({ message: 'Hospital created successfully' });
   } catch (error) {
     console.error(error);
