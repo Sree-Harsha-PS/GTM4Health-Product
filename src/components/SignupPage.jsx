@@ -13,6 +13,8 @@ const Signup = () => {
   const [role, setRole] = useState('');
   const [agreed, setAgreed] = useState(false); // state for the checkbox
   const [signupStatus, setSignupStatus] = useState(null); // state for signup status
+  const [errorMessage, setErrorMessage] = useState(''); //Err message
+
 
   const navigate = useNavigate();
 
@@ -41,6 +43,7 @@ const Signup = () => {
 
       console.error('Signup failed', error);
       setSignupStatus('failure');
+      setErrorMessage(error.response.data.error);
     }
   };
 
@@ -64,12 +67,16 @@ const Signup = () => {
       return (
         <div className="popup failure">
           Signup failed. Please try again.
-          <button onClick={handleRetry}>Retry</button>
+          <br />
+          {errorMessage}
+          <br />
+          <button onClick={handleRetry}>Try Again</button>
         </div>
       );
     }
     return null;
   };
+  
 
   return (
   <div>
@@ -147,21 +154,21 @@ const Signup = () => {
                 <option disabled hidden value="">
                   Choose your role
                 </option>
-                <option value="healthcare_entrepreneur">
+                <option value="Healthcare Entrepreneur">
                   Healthcare Entrepreneur
                 </option>
-                <option value="engineer">Engineer</option>
-                <option value="doctors">Doctors</option>
-                <option value="dealers_distributors">
+                <option value="Engineer">Engineer</option>
+                <option value="Doctor">Doctors</option>
+                <option value="Dealers/Distributors">
                   Dealers/Distributors
                 </option>
-                <option value="hospitals_labs">Hospitals/Labs</option>
-                <option value="student">Student</option>
-                <option value="incubator_accelerator">
+                <option value="Hospitals/Labs">Hospitals/Labs</option>
+                <option value="Student">Student</option>
+                <option value="Incubator/Accelerator">
                   Incubator/Accelerator
                 </option>
-                <option value="investor">Investor</option>
-                <option value="none">None of the above</option>
+                <option value="Investor">Investor</option>
+                <option value="None">None of the above</option>
               </select>
             </div>
           </div>

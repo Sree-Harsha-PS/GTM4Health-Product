@@ -15,13 +15,13 @@ router.post('/', async (req, res) => {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: 'Invalid email format' });
+      return res.status(400).json({ error: "Check the 'email' field" });
     }
 
     // Validate phone number format
     const phoneRegex = /^\d{10}$/; // Assuming a 10-digit phone number format
     if (!phoneRegex.test(phone)) {
-      return res.status(400).json({ error: 'Invalid phone number format' });
+      return res.status(400).json({ error: "Check the 10-digit phone number" });
     }
 
     // Check if user with the same email already exists

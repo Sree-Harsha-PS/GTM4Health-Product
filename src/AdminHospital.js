@@ -27,12 +27,12 @@ const Hospital = () => {
   };
 
   return (
-    <div>
+    <div className="page-view">
       <AdminHeader />
       <div className="d-content">
         <div className="dashboard">
           <AdminMenuBar />
-          <div className="dashboard-content">
+          <div className="hosp-content">
             <h1>Add Hospitals</h1>
             <form onSubmit={handleSubmit} className="hospital-f">
               <select required value={city} onChange={(e) => setCity(e.target.value)}>

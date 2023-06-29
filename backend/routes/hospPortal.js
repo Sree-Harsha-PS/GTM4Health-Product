@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Hospital = require('../backend/models/hospital');
+const Hospital = require('../models/hospital');
 
 router.get('/', async (req, res) => {
     try {

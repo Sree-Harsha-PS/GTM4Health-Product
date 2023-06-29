@@ -30,13 +30,13 @@ const HospitalPortal = () => {
   }
 
   return (
-    <div>
+    <div className="page-view">
       <AdminHeader />
       <div className="d-content">
         <div className="dashboard">
           <AdminMenuBar />
-          <div className="dashboard-content">
-            <h1>Hospital Records Portal</h1>
+          <h1>Hospital Records Portal</h1>
+          <div className="table-content">
             <table className="user-table">
               <thead>
                 <tr>
@@ -46,6 +46,13 @@ const HospitalPortal = () => {
                 </tr>
               </thead>
               <tbody>
+                {hospitals.map((hospital) => (
+                  <tr key={hospital._id}>
+                    <td>{hospital.name}</td>
+                    <td>{hospital.city}</td>
+                    {/* Add more table cells for additional features */}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

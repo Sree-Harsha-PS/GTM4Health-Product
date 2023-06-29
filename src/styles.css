@@ -156,10 +156,7 @@
   margin-right: 0;
 }
 
-.dashboard{
-  height: 80vh;
-  width: 100%;
-}
+
 
 .social-icons a:visited { 
   text-decoration: none; 
@@ -438,7 +435,7 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .menu-item {
@@ -460,13 +457,17 @@ button[type="submit"]:hover {
 
 .dashboard {
   /* margin-left: 250px; Adjust this value based on the menu bar width */
+  height: 100vh;
   padding: 20px;
   padding-bottom: 80px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .d-content {
   margin-left: 250px; /* Adjust this value based on the menu bar width */
   padding: 20px;
+  max-height: 400vh;
   margin-bottom: 100px; /* Adjust this value based on the footer height */
 }
 
@@ -496,6 +497,7 @@ button[type="submit"]:hover {
   flex-direction: column;
   padding: 10px;
   overflow-y: auto;
+  margin-bottom: 20vh;
 }
 
 .menu-item {
@@ -540,7 +542,7 @@ button[type="submit"]:hover {
   flex-direction: column;
   padding-bottom: 20px;
   gap: 10px;
-  width: 200px;
+  width: 250px;
   margin: 0 auto;
 }
 
@@ -549,6 +551,8 @@ button[type="submit"]:hover {
   max-width: 600px;
   margin-bottom: 30px;
   padding-bottom: 30px;
+  height: 300vh;
+  overflow-x: hidden;
 }
 
 .hsubtn{
@@ -558,12 +562,12 @@ button[type="submit"]:hover {
 
 /*user access */
 
-.user-table {
+.user-table{
   border: 2px solid blue;
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 20px;
-  max-height: 200px; /* Adjust the desired maximum height */
+  max-height: 50vh; /* Adjust the desired maximum height */
   overflow-y: auto;
   padding-bottom: 30px;
 }
@@ -603,5 +607,20 @@ button[type="submit"]:hover {
   z-index: -1;
 }
 
+.table-content{
+  display: flex;
+  max-height: 100vh;
+  overflow-y: auto;
+}
 
+.hosp-content{
+  margin-left: 150px;
+  max-width: 600px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  max-height: 600vh;
+}
 
+.page-view{
+  overflow: hidden;
+}
