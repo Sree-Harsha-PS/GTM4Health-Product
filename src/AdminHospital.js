@@ -33,7 +33,7 @@ const Hospital = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="dashboard-content">
-            <h1>Welcome Admin!</h1>
+            <h1>Add Hospitals</h1>
             <form onSubmit={handleSubmit} className="hospital-f">
               <select required value={city} onChange={(e) => setCity(e.target.value)}>
                 <option disabled hidden value="">Select City</option>

@@ -33,6 +33,7 @@ const loginRouter = require('./routes/login');
 const hospitalRouter = require('./routes/hospital'); 
 const adminLoginRouter = require('./routes/adminlogin');
 const userRouter = require('./routes/users');
+const hospitalPortalRouter = require('./routes/hospPortal');
 
 // Use routes
 app.use('/api/signup', signupRouter);
@@ -40,6 +41,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/admin', adminLoginRouter);
 app.use('/api/admin/dashboard/Add-Hospital', hospitalRouter); 
 app.use('/api/users',userRouter)
+app.use('/api/hospital-portal',hospitalPortalRouter);
 
 
 // Start the server
