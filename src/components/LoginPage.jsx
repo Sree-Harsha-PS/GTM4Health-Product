@@ -40,10 +40,10 @@ const LoginPage = () => {
   };
   
   return (
-    <div>
+    <div className='page-view'>
       <Header />
       <div className="login-container">
-        <h1 className="signup-title">Login</h1>
+        <h1 className="signup-title">LogIn</h1>
         <form onSubmit={handleLogin}>
           <div className="centrepage">
             <div className="log-field">

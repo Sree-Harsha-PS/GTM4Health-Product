@@ -50,7 +50,7 @@ export default function App() {
 
 function Home() {
   return (
-    <div className="landing-page">
+    <div className="landing-page page-view">
       <div className="content">
         <Content />
       </div>

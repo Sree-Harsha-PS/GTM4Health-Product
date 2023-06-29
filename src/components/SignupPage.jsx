@@ -79,7 +79,7 @@ const Signup = () => {
   
 
   return (
-  <div>
+  <div className='page-view'>
     <Header />
     <div className="signupPage">
       <div className="signup-container">

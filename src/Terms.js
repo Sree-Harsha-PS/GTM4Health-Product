@@ -9,7 +9,7 @@ const Terms = () => {
     const Title = "Terms of Use"
     const Features = ["feature one","feature two","feature three","feature four","feature five","feature six",]
   return (
-    <div className="content">
+    <div className="content page-view">
       <Header />
       <div className="card-container">
         <Card title = {Title} features = {Features} />

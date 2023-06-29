@@ -75,7 +75,7 @@ const AdminLoginPage = () => {
   
 
   return (
-    <div>
+    <div className='page-view'>
       <Header />
       <div className="login-container">
         <h1 className="signup-title">

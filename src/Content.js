@@ -7,7 +7,7 @@ import Header from "./components/Header";
 
 const Content = () => {
   return (
-    <div className="content">
+    <div className="content page-view">
       <Header />
       <div className="card-container">
         {cardsData.map((card, index) => (

@@ -16,7 +16,7 @@ const AdminFeatures = () => {
   }
 
   return (
-    <div>
+    <div className="page-view">
     <AdminHeader />
     <div className="d-content">
       <div className="dashboard">
