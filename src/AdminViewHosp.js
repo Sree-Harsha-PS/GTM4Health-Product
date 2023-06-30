@@ -35,7 +35,9 @@ const HospitalPortal = () => {
       <div className="d-content">
         <div className="dashboard">
           <AdminMenuBar />
-          <h1>Hospital Records Portal</h1>
+          <div className="page-title">
+            <h1 className="page-title-child">Hospital List - City Wise</h1>
+          </div>
           <div className="table-content">
             <table className="user-table">
               <thead>

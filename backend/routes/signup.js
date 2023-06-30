@@ -31,8 +31,7 @@ router.post('/', async (req, res) => {
     }
 
     // Create a new user
-    const newUser = new User({ name, phone, email, password, role });
-    await newUser.save();
+    await User.create({ name, phone, email, password, role});
 
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {

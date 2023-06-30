@@ -35,7 +35,9 @@ const AdminUserAccess = () => {
       <div className="d-content">
         <div className="dashboard">
           <AdminMenuBar />
-          <h1>User Dashboard</h1>
+          <div className="page-title">
+            <h1 className="page-title-child">User Dashboard</h1>
+          </div>
           <div className="table-content">
             <table className="user-table">
               <thead>
@@ -44,6 +46,7 @@ const AdminUserAccess = () => {
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Role</th>
+                  <th>Activated Time</th>
                   {/* Add more table headers if needed */}
                 </tr>
               </thead>
@@ -54,6 +57,7 @@ const AdminUserAccess = () => {
                     <td>{user.email}</td>
                     <td>{user.phone}</td>
                     <td>{user.role}</td>
+                    <td>{user.activationTime}</td>
                     {/* Add more table cells for additional features */}
                   </tr>
                 ))}

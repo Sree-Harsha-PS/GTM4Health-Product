@@ -31,7 +31,7 @@ db.once('open', () => {
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const hospitalRouter = require('./routes/hospital'); 
-const adminLoginRouter = require('./routes/adminlogin');
+const adminLoginRouter = require('./routes/adminLogin');
 const userRouter = require('./routes/users');
 const hospitalPortalRouter = require('./routes/hospPortal');
 

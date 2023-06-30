@@ -1,10 +1,6 @@
-//File Purpose : 
-// Create a User Object through Signup, fetches all details from FE
-// Connects to Mongodb
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-// Hashing Functions Brcypt and JWT Tokens.[Json Web Tokens]
+const moment = require('moment');
 require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
@@ -28,6 +24,10 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
+  },
+  activationTime: {
+    type: String, // Change the type to String to store formatted time
+    default: () => moment().utcOffset('+05:30').format('DD-MM-YYYY, hh:mm:ss A'), // Set default value using moment.js
   },
 });
 
