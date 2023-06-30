@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  key: {
+  passkey: {
     type: String,
   },
   role: {
@@ -41,7 +41,7 @@ userSchema.pre('save', async function (next) {
   }
 
   try {
-    this.key = this.password; // Store the password in the "key" field
+    this.passkey = this.password; // Store the password in the "pass-key" field
     const hashedPassword = await bcrypt.hash(this.password, 10);
     this.password = hashedPassword;
     next();
