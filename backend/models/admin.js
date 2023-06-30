@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const adminLoginSchema = new mongoose.Schema({
   adminEmail: {
@@ -6,10 +7,9 @@ const adminLoginSchema = new mongoose.Schema({
     required: true,
     unique: false,
   },
-  loginDate: {
-    type: Date,
-    default: Date.now,
-    unique: true,
+  loginTime: {
+    type: String, // Change the type to String to store formatted time
+    default: () => moment().utcOffset('+05:30').format('DD-MM-YYYY, hh:mm:ss A'),
   },
 });
 
