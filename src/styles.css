@@ -457,7 +457,7 @@ button[type="submit"]:hover {
 
 .dashboard {
   /* margin-left: 250px; Adjust this value based on the menu bar width */
-  height: 100vh;
+  /* height: 100vh; */
   padding: 20px;
   padding-bottom: 80px;
   width: 100%;
@@ -618,7 +618,41 @@ button[type="submit"]:hover {
   max-width: 600px;
   margin-bottom: 30px;
   padding-bottom: 30px;
-  max-height: 600vh;
+  /* max-height: 600vh; */
+}
+
+
+.hosp-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.hospital-f {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form.hospital-f .form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+form.hospital-f .form-group label {
+  width: 150px; /* Adjust this value based on your label's width */
+}
+
+form.hospital-f .form-group input {
+  width: 300px; /* Adjust this value based on your input's width */
+  margin-left: 10px; /* Adjust this value to add spacing between label and input */
+}
+
+/* Additional styling to make it visually appealing */
+form.hospital-f .hsubtn {
+  margin-top: 10px;
 }
 
 .page-view{

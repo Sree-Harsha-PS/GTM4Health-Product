@@ -44,7 +44,11 @@ const HospitalPortal = () => {
                 <tr>
                   <th>Name</th>
                   <th>City</th>
-                  {/* Add more table headers if needed */}
+                  <th>Doctor Name</th>
+                  <th>Specialization</th>
+                  <th>Contact Email</th>
+                  <th>Contact Mobile</th>
+                  {/* Add more table headers for additional features */}
                 </tr>
               </thead>
               <tbody>
@@ -52,6 +56,10 @@ const HospitalPortal = () => {
                   <tr key={hospital._id}>
                     <td>{hospital.name}</td>
                     <td>{hospital.city}</td>
+                    <td>{hospital.docName}</td>
+                    <td>{hospital.docSpez}</td>
+                    <td>{hospital.mail}</td>
+                    <td>{hospital.phone}</td>
                     {/* Add more table cells for additional features */}
                   </tr>
                 ))}

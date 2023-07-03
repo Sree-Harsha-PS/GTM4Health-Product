@@ -8,22 +8,46 @@ import useAuth from './components/useAuth';
 const Hospital = () => {
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
+  const [docName, setDocName] = useState('');
+  const [docSpez, setDocSpez] = useState('');
+  const [mail, setMail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [hospitalStatus, setHospitalStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting hospital form'); 
-    console.log('Name:', name);
-    console.log('City:', city);
     try {
-      await axios.post('http://localhost:5000/api/admin/dashboard/Add-Hospital', { name, city });
+      await axios.post('http://localhost:5000/api/admin/dashboard/Add-Hospital', { name, city, docName, docSpez, mail, phone });
       setName('');
       setCity('');
-      // Optionally show a success message or perform any other actions
+      setDocName('');
+      setDocSpez('');
+      setMail('');
+      setPhone('');
+      setHospitalStatus('success');
     } catch (error) {
       console.error(error);
       console.log('Error response:', error.response);
+      setHospitalStatus('failure');
       // show an error message or perform any other error handling
     }
+  };
+
+  const renderHospitalStatusMessage = () => {
+    if (hospitalStatus === 'success') {
+      return <div className="popup success">Hospital added successfully!</div>;
+    } else if (hospitalStatus === 'failure') {
+      return (
+        <div className="popup failure">
+          Hospital addition failed. Please try again.
+          <br />
+          {errorMessage}
+          <br />
+          <button onClick={() => setHospitalStatus(null)}>Try Again</button>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -34,23 +58,71 @@ const Hospital = () => {
           <AdminMenuBar />
           <div className="hosp-content">
             <h1>Add Hospitals</h1>
+            {renderHospitalStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
-              <select required value={city} onChange={(e) => setCity(e.target.value)}>
-                <option disabled hidden value="">Select City</option>
-                <option value="Bengaluru">Bengaluru</option>
-                <option value="Mangalore">Mangalore</option>
-                <option value="Mysore">Mysore</option>
-                <option value="Davanagere">Davanagere</option>
-                <option value="Shivamogga">Shivamogga</option>
-                <option value="Belgaum">Belgaum</option>
-              </select>
-              <input
-                type="text"
-                required
-                placeholder="Hospital Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+              <div className="form-group">
+                <label htmlFor="city">City:</label>
+                <select id="city" required value={city} onChange={(e) => setCity(e.target.value)}>
+                  <option disabled hidden value="">Select City</option>
+                  <option value="Bengaluru">Bengaluru</option>
+                  <option value="Mangalore">Mangalore</option>
+                  <option value="Mysore">Mysore</option>
+                  <option value="Davanagere">Davanagere</option>
+                  <option value="Shivamogga">Shivamogga</option>
+                  <option value="Belgaum">Belgaum</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="name">Hospital Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Hospital Name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="docName">Doctor Name:</label>
+                <input
+                  type="text"
+                  id="docName"
+                  value={docName}
+                  onChange={(e) => setDocName(e.target.value)}
+                  placeholder="Doctor Name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="docSpez">Specialization:</label>
+                <input
+                  type="text"
+                  id="docSpez"
+                  value={docSpez}
+                  onChange={(e) => setDocSpez(e.target.value)}
+                  placeholder="Specialization"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="mail">Contact Email:</label>
+                <input
+                  type="text"
+                  id="mail"
+                  value={mail}
+                  onChange={(e) => setMail(e.target.value)}
+                  placeholder="Contact Email"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Contact Mobile:</label>
+                <input
+                  type="text"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Contact Mobile"
+                />
+              </div>
               <button type="submit" className="hsubtn">Submit</button>
             </form>
           </div>
