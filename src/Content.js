@@ -1,3 +1,4 @@
+// File contains all the menu items of Landing Page (like Users, Benefits lists).
 import React from "react";
 import Card from "./components/Card";
 import cardsData from "./Features.json";
