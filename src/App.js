@@ -1,3 +1,7 @@
+// Landing Page of the Product
+// Has React routes of other pages
+// All Project Modules are being imported to this page.
+
 import React from 'react';
 import './styles.css';
 import Content from './Content';
@@ -17,6 +21,7 @@ import AdminFeatures from './AdminFeatures';
 import HospitalPortal from './AdminViewHosp';
 //import PrivateRoute from './components/Privateroute';
 
+//Entry Function into the Product
 export default function App() {
   return (
     <Router>
@@ -48,6 +53,7 @@ export default function App() {
   );
 }
 
+//Landing Page
 function Home() {
   return (
     <div className="landing-page page-view">
@@ -57,4 +63,3 @@ function Home() {
     </div>
   );
 }
-
