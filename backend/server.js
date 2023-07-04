@@ -1,9 +1,12 @@
+// This module connects to router and router connects to Mongodb
+// express.js is the middleware.
 // Import dependencies
+
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser'); // 
-require('dotenv').config();
+const cors = require('cors'); // Used for extracting mongodb database here.
+const mongoose = require('mongoose'); // for connecting to mongodb using ENV variable string.
+const bodyParser = require('body-parser'); // helps browser to break the data got by cors.  It does parsing.
+require('dotenv').config(); // Env variable and hashing constants.
 
 // Set up Express.js server
 const app = express();
@@ -28,6 +31,8 @@ db.once('open', () => {
 });
 
 // Import routes
+// Backend this component runs on port 5000
+// Front end this kind of component runs on port 3000
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const hospitalRouter = require('./routes/hospital'); 
