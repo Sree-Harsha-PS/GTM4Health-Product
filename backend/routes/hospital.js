@@ -1,3 +1,7 @@
+// Functionality to add Hospital data into the Mongodb database.
+// We are posting a request with Hospital details.
+// react data of Hospital info is getting into body collection. [router]
+
 const express = require('express');
 const router = express.Router();
 const Hospital = require('../models/hospital'); // Import the Hospital model
