@@ -1,3 +1,8 @@
+// Signup Module.
+// Router collects the data from React through Body messages and stores in MongodB
+// Verification of Password, Email and 10 digit phone number.
+// If email already present, doesn't proceed further.
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
