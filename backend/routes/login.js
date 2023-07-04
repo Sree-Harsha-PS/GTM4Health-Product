@@ -1,3 +1,9 @@
+//User Login validation code
+//react is posting to router.  
+//Router verifies with existing table in Mongodb
+//Router posts results back to react
+// React accordingly allows or denies access.
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
