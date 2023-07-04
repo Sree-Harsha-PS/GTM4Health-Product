@@ -1,7 +1,7 @@
 // Import required modules and dependencies
-const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const express = require('express'); 
+const bcrypt = require('bcrypt'); // For hashing from browser side.
+const jwt = require('jsonwebtoken');// For Hashing the password. Currently this feature is inactive
 const Admin = require('../models/admin');
 
 // Create an instance of the express router

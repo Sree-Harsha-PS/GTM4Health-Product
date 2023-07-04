@@ -1,3 +1,7 @@
+// Admin User Dashboard Table
+// Data shown here at Date Activated.
+// Get request made by Router to Front End. 
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');

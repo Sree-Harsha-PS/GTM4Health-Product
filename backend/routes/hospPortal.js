@@ -1,3 +1,6 @@
+// Menu item of view hospital functionality here.
+// This receives the post request from front end and gets the data from backend through router.
+
 const express = require('express');
 const router = express.Router();
 const Hospital = require('../models/hospital');
