@@ -116,4 +116,4 @@ Open your web browser and navigate to http://localhost:3000 to access GTM4Health
 
 
 ## License
-📄 This project is licensed under the MIT License.
+📄 This project application is licensed under the MIT License.
