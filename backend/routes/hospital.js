@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Hospital = require('../models/hospital'); // Import the Hospital model
+const Hospital = require('../models/hospital');
 
 // Create a new hospital
 router.post('/', async (req, res) => {
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE a hospital by ID
-router.delete('/:id', async (req, res) => {
+router.delete('/delete-hospital/:id', async (req, res) => {
   try {
     const deletedHospital = await Hospital.findByIdAndDelete(req.params.id);
     if (!deletedHospital) {
@@ -30,5 +30,20 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Update a hospital by ID
+router.put("/hospitals/:id", async (req, res) => {
+  const { id } = req.params;
+  const updatedData = req.body.data;
+
+  try {
+    const updatedHospital = await Hospital.findByIdAndUpdate(id, updatedData, {
+      new: true,
+      runValidators: true,
+    });
+    res.json(updatedHospital);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 module.exports = router;

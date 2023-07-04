@@ -4,10 +4,13 @@ import AdminHeader from "./components/AdminHeader";
 import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
+import EditHospitalForm from "./AdminUpdateHosp";
 
 const HospitalPortal = () => {
   const isAuthenticated = useAuth();
   const [hospitals, setHospitals] = useState([]);
+  const [editFormVisible, setEditFormVisible] = useState(false);
+  const [selectedHospital, setSelectedHospital] = useState(null);
 
   useEffect(() => {
     const fetchHospitals = async () => {
@@ -29,28 +32,53 @@ const HospitalPortal = () => {
     return null;
   }
 
-// Inside the HospitalPortal component
-const handleDeleteHospital = async (id) => {
-  // Show a confirmation dialog before deleting
-  const confirmed = window.confirm('Are you sure you want to delete this hospital?');
-  if (!confirmed) {
-    return;
-  }
+  const handleDeleteHospital = async (id) => {
+    const confirmed = window.confirm('Are you sure you want to delete this hospital?');
+    if (!confirmed) {
+      return;
+    }
 
-  try {
-    await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/${id}`);
-    // Remove the deleted hospital from the state
-    setHospitals(hospitals.filter((hospital) => hospital._id !== id));
-    // Show a success message or perform any other actions
-    console.log('Hospital deleted successfully');
-  } catch (error) {
-    console.error(error);
-    // Show an error message or perform any other error handling
-    console.log('Error deleting hospital');
-  }
-};
+    try {
+      await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
+      setHospitals(hospitals.filter((hospital) => hospital._id !== id));
+      console.log('Hospital deleted successfully');
+    } catch (error) {
+      console.error(error);
+      console.log('Error deleting hospital');
+    }
+  };
 
-  
+  const handleEditHospital = (hospital) => {
+    setSelectedHospital(hospital);
+    setEditFormVisible(true);
+  };
+
+  const handleUpdateHospital = async (id, updatedData) => {
+    try {
+      const requestData = {
+        data: updatedData,
+      };
+
+      await axios.put(`http://localhost:5000/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
+      setEditFormVisible(false);
+      setSelectedHospital(null);
+      fetchHospitals();
+      console.log('Hospital updated successfully');
+    } catch (error) {
+      console.error(error);
+      console.log('Error updating hospital');
+    }
+  };
+
+  const fetchHospitals = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/hospital-portal");
+      setHospitals(response.data.hospitals);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div className="page-view">
@@ -84,9 +112,12 @@ const handleDeleteHospital = async (id) => {
                     <td>{hospital.mail}</td>
                     <td>{hospital.phone}</td>
                     <td>
-                    <button className="delete-button" onClick={() => handleDeleteHospital(hospital._id)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </button>
+                      <button className="edit-button" onClick={() => handleEditHospital(hospital)}>
+                        <i className="fas fa-pencil-alt"></i>
+                      </button>
+                      <button className="delete-button" onClick={() => handleDeleteHospital(hospital._id)}>
+                        <i className="fa fa-trash" aria-hidden="true"></i> 
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -95,6 +126,13 @@ const handleDeleteHospital = async (id) => {
           </div>
         </div>
       </div>
+      {editFormVisible && (
+        <EditHospitalForm
+          hospital={selectedHospital}
+          onUpdate={(id, updatedData) => handleUpdateHospital(id, updatedData)}
+          onCancel={() => setEditFormVisible(false)}
+        />
+      )}
       <Footer />
     </div>
   );

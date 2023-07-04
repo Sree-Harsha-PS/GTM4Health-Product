@@ -40,6 +40,8 @@ app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/admin', adminLoginRouter);
 app.use('/api/admin/dashboard/Add-Hospital', hospitalRouter); 
+// app.use('/api/admin/dashboard/update-hospital', hospitalRouter); 
+// app.use('/api/admin/dashboard/delete-hospital/',hospitalRouter)
 app.use('/api/users',userRouter)
 app.use('/api/hospital-portal',hospitalPortalRouter);
 

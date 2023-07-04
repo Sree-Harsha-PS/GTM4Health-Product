@@ -19,6 +19,7 @@ import Hospital from './AdminHospital';
 import AdminUserAccess from './AdminUserAccess';
 import AdminFeatures from './AdminFeatures';
 import HospitalPortal from './AdminViewHosp';
+import MarketAccess from './MarketAccess';
 //import PrivateRoute from './components/Privateroute';
 
 //Entry Function into the Product
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />
         <Route path='/privacypolicy' element={<Privacy />} />
+        <Route path="/dashboard/Market-Access" element={<MarketAccess />} />
       </Routes>
     </Router>
   );

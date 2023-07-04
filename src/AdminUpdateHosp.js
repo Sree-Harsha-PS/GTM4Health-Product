@@ -1,127 +1,116 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; // Added 'useEffect'
 import axios from "axios";
 
-const UpdateHospital = ({ hospitalId }) => {
-  const [name, setName] = useState("");
-  const [city, setCity] = useState("");
-  const [docName, setDocName] = useState("");
-  const [docSpez, setDocSpez] = useState("");
-  const [mail, setMail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [hospitalStatus, setHospitalStatus] = useState(null);
+const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
+  // Initialize state variables with the values from the 'hospital' prop
+  const [name, setName] = useState(hospital.name);
+  const [city, setCity] = useState(hospital.city);
+  const [docName, setDocName] = useState(hospital.docName);
+  const [docSpez, setDocSpez] = useState(hospital.docSpez);
+  const [mail, setMail] = useState(hospital.mail);
+  const [phone, setPhone] = useState(hospital.phone);
 
+  // useEffect to update state when the 'hospital' prop changes
   useEffect(() => {
-    // Fetch hospital details using the hospitalId prop
-    const fetchHospitalDetails = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/api/hospitals/${hospitalId}`);
-        const { name, city, docName, docSpez, mail, phone } = response.data;
-        setName(name);
-        setCity(city);
-        setDocName(docName);
-        setDocSpez(docSpez);
-        setMail(mail);
-        setPhone(phone);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    setName(hospital.name);
+    setCity(hospital.city);
+    setDocName(hospital.docName);
+    setDocSpez(hospital.docSpez);
+    setMail(hospital.mail);
+    setPhone(hospital.phone);
+  }, [hospital]);
 
-    fetchHospitalDetails();
-  }, [hospitalId]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      await axios.put(`http://localhost:5000/api/hospitals/${hospitalId}`, {
-        name,
-        city,
-        docName,
-        docSpez,
-        mail,
-        phone,
-      });
-      setHospitalStatus("success");
-    } catch (error) {
-      console.error(error);
-      setHospitalStatus("failure");
-    }
-  };
-
-  const renderHospitalStatusMessage = () => {
-    if (hospitalStatus === "success") {
-      return <div className="popup success">Hospital updated successfully!</div>;
-    } else if (hospitalStatus === "failure") {
-      return (
-        <div className="popup failure">
-          Hospital update failed. Please try again.
-          <br />
-          {/* Add error message or perform additional error handling */}
-          <button onClick={() => setHospitalStatus(null)}>Try Again</button>
-        </div>
-      );
-    }
-    return null;
+    const updatedData = {
+      name,
+      city,
+      docName,
+      docSpez,
+      mail,
+      phone,
+    };
+    onUpdate(hospital._id, updatedData);
   };
 
   return (
-    <div>
-      <h2>Update Hospital</h2>
-      {renderHospitalStatusMessage()}
+    <div className="edit-form">
+      <h2>Edit Hospital</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        {/* Form fields with their respective values */}
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
 
-        <label htmlFor="city">City</label>
-        <input
-          type="text"
-          id="city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="city">City</label>
+          <input
+            type="text"
+            id="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
 
-        <label htmlFor="docName">Doctor Name</label>
-        <input
-          type="text"
-          id="docName"
-          value={docName}
-          onChange={(e) => setDocName(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="docName">Doctor Name</label>
+          <input
+            type="text"
+            id="docName"
+            value={docName}
+            onChange={(e) => setDocName(e.target.value)}
+          />
+        </div>
 
-        <label htmlFor="docSpez">Specialization</label>
-        <input
-          type="text"
-          id="docSpez"
-          value={docSpez}
-          onChange={(e) => setDocSpez(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="docSpez">Specialization</label>
+          <input
+            type="text"
+            id="docSpez"
+            value={docSpez}
+            onChange={(e) => setDocSpez(e.target.value)}
+          />
+        </div>
 
-        <label htmlFor="mail">Contact Email</label>
-        <input
-          type="text"
-          id="mail"
-          value={mail}
-          onChange={(e) => setMail(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="mail">Contact Email</label>
+          <input
+            type="email"
+            id="mail"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+          />
+        </div>
 
-        <label htmlFor="phone">Contact Mobile</label>
-        <input
-          type="text"
-          id="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="phone">Contact Number</label>
+          <input
+            type="text"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
 
-        <button type="submit">Update</button>
+        <div className="button-group">
+          <button type="submit" className="btn-primary">
+            Update
+          </button>
+          <button type="button" className="btn-secondary" onClick={onCancel}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default UpdateHospital;
+export default EditHospitalForm;
