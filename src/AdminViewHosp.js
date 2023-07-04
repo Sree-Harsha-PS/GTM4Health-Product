@@ -29,6 +29,29 @@ const HospitalPortal = () => {
     return null;
   }
 
+// Inside the HospitalPortal component
+const handleDeleteHospital = async (id) => {
+  // Show a confirmation dialog before deleting
+  const confirmed = window.confirm('Are you sure you want to delete this hospital?');
+  if (!confirmed) {
+    return;
+  }
+
+  try {
+    await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/${id}`);
+    // Remove the deleted hospital from the state
+    setHospitals(hospitals.filter((hospital) => hospital._id !== id));
+    // Show a success message or perform any other actions
+    console.log('Hospital deleted successfully');
+  } catch (error) {
+    console.error(error);
+    // Show an error message or perform any other error handling
+    console.log('Error deleting hospital');
+  }
+};
+
+  
+
   return (
     <div className="page-view">
       <AdminHeader />
@@ -47,8 +70,8 @@ const HospitalPortal = () => {
                   <th>Doctor Name</th>
                   <th>Specialization</th>
                   <th>Contact Email</th>
-                  <th>Contact Mobile</th>
-                  {/* Add more table headers for additional features */}
+                  <th>Contact Number</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -60,7 +83,11 @@ const HospitalPortal = () => {
                     <td>{hospital.docSpez}</td>
                     <td>{hospital.mail}</td>
                     <td>{hospital.phone}</td>
-                    {/* Add more table cells for additional features */}
+                    <td>
+                    <button className="delete-button" onClick={() => handleDeleteHospital(hospital._id)}>
+                      <i className="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
