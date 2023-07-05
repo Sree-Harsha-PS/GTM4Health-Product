@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const moment = require('moment');
+// Objects to be stored in Mongodb is mentioned here.
+
+const mongoose = require('mongoose'); // this is db
+const moment = require('moment'); // Convert from GMT to IST
 
 const adminLoginSchema = new mongoose.Schema({
   adminEmail: {
