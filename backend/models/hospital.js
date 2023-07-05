@@ -1,13 +1,16 @@
+// Stores Hospital Records
+// Defined the Hospital fields here.
+
 const mongoose = require('mongoose');
 
 const hospitalSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: true,// Name is mandatory
   },
   city: {
     type: String,
-    required: true,
+    required: true,//City is mandatory
   },
   docName: {
     type: String,
