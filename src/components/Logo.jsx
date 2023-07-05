@@ -1,3 +1,6 @@
+// Logo is
+// GTM4Health logo and In Private Beta Image
+//
 import React from "react";
 import imgP from "../img/logo.png";
 import Beta from "../img/beta.png";
