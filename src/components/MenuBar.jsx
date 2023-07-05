@@ -1,8 +1,15 @@
+// User menu bar here.
+//
 import React from "react";
 
 const MenuBar = () => {
   return (
     <div className="menu-bar">
+      <a href="/dashboard/Market-Access" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">Market Access</span>
+        </div>
+      </a>
       <a href="/dashboard/GTM-Readiness" className="menu-link">
         <div className="menu-item">
           <span className="menu-text">GTM Readiness</span>
