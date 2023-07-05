@@ -1,3 +1,6 @@
+// Landing Page Header 
+// Used in Signup Page and Login Page as well
+//
 import React from "react";
 import Logo from "./Logo";
 import SignUpButton from "./Signup";
