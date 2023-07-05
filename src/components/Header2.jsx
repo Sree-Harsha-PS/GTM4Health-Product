@@ -1,3 +1,6 @@
+// Used in Logout and User interface settings
+// Used when you are inside the Product < after login>
+//
 import React, { useState } from "react";
 import Logo from "./Logo";
 import LogoutButton from "./logout";
