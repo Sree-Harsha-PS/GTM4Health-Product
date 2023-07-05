@@ -1,3 +1,6 @@
+// Help Page.  Inside the Product
+// To be Populated in coming days.
+//
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
