@@ -1,3 +1,6 @@
+// Entire Login Page
+// User data is collected here.
+//
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
