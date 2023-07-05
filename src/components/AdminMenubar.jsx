@@ -1,3 +1,5 @@
+// Admin Menu Bar Component
+//
 import React from "react";
 
 const AdminMenuBar = () => {
