@@ -1,3 +1,5 @@
+// Admin component created
+//
 import React, { useState } from "react";
 import Logo from "./Logo";
 import AdminLogoutButton from "./AdminLogout";
