@@ -1,3 +1,6 @@
+// Footer Component 
+// Just have added Versioning.
+//
 import React from 'react';
 
 
