@@ -1,3 +1,7 @@
+// Part of Authentication.
+// Didn't work. Currently Archived.
+// To be removed later.
+
 import { Router } from 'express';
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
