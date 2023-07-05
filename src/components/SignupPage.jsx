@@ -1,3 +1,6 @@
+// Entire Signup Page
+// React js is posting to backend.
+// Important module.
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
