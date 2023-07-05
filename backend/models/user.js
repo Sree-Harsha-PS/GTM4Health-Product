@@ -1,3 +1,6 @@
+// User model for storing in MongodB
+// User Data like Name, Email, phone number, Role.
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
@@ -15,7 +18,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true,// To avoid duplication
   },
   password: {
     type: String,
