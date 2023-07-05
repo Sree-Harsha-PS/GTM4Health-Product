@@ -1,3 +1,6 @@
+// Used for checking if fields are not empty
+// Used for validation.
+//
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
