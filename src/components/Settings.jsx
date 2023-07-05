@@ -1,3 +1,7 @@
+// Setting button.
+// Currently empty.
+// Need to improve.
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
