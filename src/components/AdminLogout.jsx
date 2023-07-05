@@ -1,3 +1,5 @@
+// Admin Logout component created
+//
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
