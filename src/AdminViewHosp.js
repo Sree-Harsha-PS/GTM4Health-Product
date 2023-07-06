@@ -11,29 +11,28 @@ const HospitalPortal = () => {
   const [hospitals, setHospitals] = useState([]);
   const [editFormVisible, setEditFormVisible] = useState(false);
   const [selectedHospital, setSelectedHospital] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
+  const [totalRows, setTotalRows] = useState(0);
 
   useEffect(() => {
-    const fetchHospitals = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/hospital-portal");
-        setHospitals(response.data.hospitals);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     if (isAuthenticated) {
       fetchHospitals();
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, currentPage]);
 
-  if (!isAuthenticated) {
-    // Optional: Show a loading state or return null while checking authentication
-    return null;
-  }
+  const fetchHospitals = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}`);
+      setHospitals(response.data.hospitals);
+      setTotalRows(response.data.totalRows);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleDeleteHospital = async (id) => {
-    const confirmed = window.confirm('Are you sure you want to delete this hospital?');
+    const confirmed = window.confirm("Are you sure you want to delete this hospital?");
     if (!confirmed) {
       return;
     }
@@ -41,10 +40,10 @@ const HospitalPortal = () => {
     try {
       await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
       setHospitals(hospitals.filter((hospital) => hospital._id !== id));
-      console.log('Hospital deleted successfully');
+      console.log("Hospital deleted successfully");
     } catch (error) {
       console.error(error);
-      console.log('Error deleting hospital');
+      console.log("Error deleting hospital");
     }
   };
 
@@ -63,22 +62,33 @@ const HospitalPortal = () => {
       setEditFormVisible(false);
       setSelectedHospital(null);
       fetchHospitals();
-      console.log('Hospital updated successfully');
+      console.log("Hospital updated successfully");
     } catch (error) {
       console.error(error);
-      console.log('Error updating hospital');
+      console.log("Error updating hospital");
     }
   };
 
-  const fetchHospitals = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/api/hospital-portal");
-      setHospitals(response.data.hospitals);
-    } catch (error) {
-      console.error(error);
+  const totalPages = Math.ceil(totalRows / pageSize);
+  const isFirstPage = currentPage === 1;
+  const isLastPage = currentPage === totalPages;
+
+  const handlePrevPage = () => {
+    if (!isFirstPage) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
+  const handleNextPage = () => {
+    if (!isLastPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  if (!isAuthenticated) {
+    // Optional: Show a loading state or return null while checking authentication
+    return null;
+  }
 
   return (
     <div className="page-view">
@@ -87,12 +97,15 @@ const HospitalPortal = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="page-title">
-            <h1 className="page-title-child">Hospital List - City Wise</h1>
+            <h1 className="page-title-child">
+              Hospital List - City Wise (Page {currentPage} of {totalPages})
+            </h1>
           </div>
           <div className="table-content">
             <table className="user-table">
               <thead>
                 <tr>
+                  <th>Sl No.</th>
                   <th>Name</th>
                   <th>City</th>
                   <th>Doctor Name</th>
@@ -103,8 +116,9 @@ const HospitalPortal = () => {
                 </tr>
               </thead>
               <tbody>
-                {hospitals.map((hospital) => (
+                {hospitals.map((hospital, index) => (
                   <tr key={hospital._id}>
+                    <td>{(currentPage - 1) * pageSize + index + 1}</td>
                     <td>{hospital.name}</td>
                     <td>{hospital.city}</td>
                     <td>{hospital.docName}</td>
@@ -116,7 +130,7 @@ const HospitalPortal = () => {
                         <i className="fas fa-pencil-alt"></i>
                       </button>
                       <button className="delete-button" onClick={() => handleDeleteHospital(hospital._id)}>
-                        <i className="fa fa-trash" aria-hidden="true"></i> 
+                        <i className="fa fa-trash" aria-hidden="true"></i>
                       </button>
                     </td>
                   </tr>
@@ -124,6 +138,19 @@ const HospitalPortal = () => {
               </tbody>
             </table>
           </div>
+          <div className="pagination-buttons">
+            {!isFirstPage && (
+              <button className="prev-button" onClick={handlePrevPage}>
+                Prev
+              </button>
+            )}
+            {!isLastPage && (
+              <button className="next-button" onClick={handleNextPage}>
+                Next
+              </button>
+            )}
+          </div>
+          <div className="total-rows">Total Healthcare Centers = {totalRows}</div>
         </div>
       </div>
       {editFormVisible && (

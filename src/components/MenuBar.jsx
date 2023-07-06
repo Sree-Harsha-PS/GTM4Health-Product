@@ -30,11 +30,6 @@ const MenuBar = () => {
           <span className="menu-text">Market Insights</span>
         </div>
       </a>
-      <a href="/dashboard/Market-Access" className="menu-link">
-        <div className="menu-item">
-          <span className="menu-text">Market Access</span>
-        </div>
-      </a>
       <a href="/dashboard/Review-Products" className="menu-link">
         <div className="menu-item-btm">
           <span className="menu-text">Review Products</span>

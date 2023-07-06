@@ -50,4 +50,5 @@ router.put("/hospitals/:id", async (req, res) => {
   }
 });
 
+
 module.exports = router;
