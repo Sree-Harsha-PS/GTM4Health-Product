@@ -98,7 +98,7 @@ const HospitalPortal = () => {
           <AdminMenuBar />
           <div className="page-title">
             <h1 className="page-title-child">
-              Healthcare Centres- City Wise (Page {currentPage} of {totalPages})
+              Healthcare Centres- City Wise 
             </h1>
           </div>
           <div className="table-content">
