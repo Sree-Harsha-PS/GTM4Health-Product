@@ -25,6 +25,12 @@ const Hospital = () => {
       setMail('');
       setPhone('');
       setHospitalStatus('success');
+      
+      // Clear the success message after 2 seconds
+      setTimeout(() => {
+          setHospitalStatus(null);
+      }, 2000);
+
     } catch (error) {
       console.error(error);
       console.log('Error response:', error.response);
@@ -39,7 +45,7 @@ const Hospital = () => {
     } else if (hospitalStatus === 'failure') {
       return (
         <div className="popup failure">
-          Hospital addition failed. Please try again.
+          Healthcare Centre addition failed. Please try again.
           <br />
           {errorMessage}
           <br />
@@ -57,7 +63,7 @@ const Hospital = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="hosp-content">
-            <h1>Add Hospitals</h1>
+            <h1>Add Healthcare Centres</h1>
             {renderHospitalStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
@@ -73,14 +79,14 @@ const Hospital = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="name">Hospital Name:</label>
+                <label htmlFor="name">Centre Name:</label>
                 <input
                   type="text"
                   id="name"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Hospital Name"
+                  placeholder="Healthcare Centre Name"
                 />
               </div>
               <div className="form-group">

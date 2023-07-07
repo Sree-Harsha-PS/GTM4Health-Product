@@ -12,8 +12,9 @@ const HospitalPortal = () => {
   const [editFormVisible, setEditFormVisible] = useState(false);
   const [selectedHospital, setSelectedHospital] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(10);
   const [totalRows, setTotalRows] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -23,9 +24,12 @@ const HospitalPortal = () => {
 
   const fetchHospitals = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}`);
+      const response = await axios.get(
+        `http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}`
+      );
       setHospitals(response.data.hospitals);
       setTotalRows(response.data.totalRows);
+      setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error(error);
     }
@@ -69,7 +73,6 @@ const HospitalPortal = () => {
     }
   };
 
-  const totalPages = Math.ceil(totalRows / pageSize);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
@@ -98,8 +101,12 @@ const HospitalPortal = () => {
           <AdminMenuBar />
           <div className="page-title">
             <h1 className="page-title-child">
-              Healthcare Centres- City Wise (Page {currentPage} of {totalPages})
+              Healthcare Centers - City Wise 
             </h1>
+          </div>
+          <div className="page-display">
+            <h4 className="total-rows">Total Healthcare Centers = {totalRows}</h4>
+            <h4 className="right"><i>Displaying Page {currentPage} of {totalPages}</i></h4>
           </div>
           <div className="table-content">
             <table className="user-table">
@@ -141,16 +148,15 @@ const HospitalPortal = () => {
           <div className="pagination-buttons">
             {!isFirstPage && (
               <button className="prev-button" onClick={handlePrevPage}>
-                Prev
+                &laquo; Prev
               </button>
             )}
             {!isLastPage && (
               <button className="next-button" onClick={handleNextPage}>
-                Next
+                Next &raquo;
               </button>
             )}
           </div>
-          <div className="total-rows">Total Healthcare Centers = {totalRows}</div>
         </div>
       </div>
       {editFormVisible && (
