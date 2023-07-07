@@ -25,6 +25,16 @@ const AdminMenuBar = () => {
           <span className="menu-text">View & Update Healthcare Centres</span>
         </div>
       </a>
+      <a href="/admin/dashboard/Add-Distributors" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">Add Dealers-Distributors</span>
+        </div>
+      </a>
+       <a href="/admin/dashboard/View-Distributors" className="menu-link">
+        <div className="menu-item">
+          <span className="menu-text">View Dealers-Distributors</span>
+        </div>
+      </a>      
     </div>
   );
 };
