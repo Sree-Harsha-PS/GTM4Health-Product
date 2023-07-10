@@ -1,7 +1,3 @@
-// Functionality to add Hospital data into the Mongodb database.
-// We are posting a request with Hospital details.
-// react data of Hospital info is getting into body collection. [router]
-
 const express = require('express');
 const router = express.Router();
 const Hospital = require('../models/hospital');
@@ -10,8 +6,8 @@ const Hospital = require('../models/hospital');
 router.post('/', async (req, res) => {
   try {
     console.log('Hospital creation request received');
-    const { name, city, docName, docSpez, mail, phone } = req.body;
-    const hospital = new Hospital({ name, city, docName, docSpez, mail, phone });
+    const { name, city, state, infraSer, docName, docSpez, mail, phone } = req.body;
+    const hospital = new Hospital({ name, city, state, infraSer, docName, docSpez, mail, phone });
     const savedHospital = await hospital.save();
     res.status(201).json({ message: 'Hospital created successfully' });
   } catch (error) {
@@ -35,7 +31,7 @@ router.delete('/delete-hospital/:id', async (req, res) => {
 });
 
 // Update a hospital by ID
-router.put("/hospitals/:id", async (req, res) => {
+router.put('/hospitals/:id', async (req, res) => {
   const { id } = req.params;
   const updatedData = req.body.data;
 
@@ -49,6 +45,5 @@ router.put("/hospitals/:id", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
-
 
 module.exports = router;

@@ -9,6 +9,8 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
   const [docSpez, setDocSpez] = useState(hospital.docSpez);
   const [mail, setMail] = useState(hospital.mail);
   const [phone, setPhone] = useState(hospital.phone);
+  const [infraSer, setInfraSer] = useState(hospital.infraSer);
+  const [state, setState] = useState(hospital.state);
 
   // useEffect to update state when the 'hospital' prop changes
   useEffect(() => {
@@ -18,6 +20,8 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
     setDocSpez(hospital.docSpez);
     setMail(hospital.mail);
     setPhone(hospital.phone);
+    setInfraSer(hospital.infraSer);
+    setState(hospital.state);
   }, [hospital]);
 
   const handleSubmit = (e) => {
@@ -29,6 +33,8 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
       docSpez,
       mail,
       phone,
+      infraSer,
+      state,
     };
     onUpdate(hospital._id, updatedData);
   };
@@ -58,6 +64,17 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
             onChange={(e) => setCity(e.target.value)}
             required
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="infraServ">Infrastructure & Services</label>
+          <textarea
+            id="infraServ"
+            value={infraSer}
+            onChange={(e) => setInfraSer(e.target.value)}
+            placeholder="Infrastructure & Services"
+            className="textarea"
+          ></textarea>
         </div>
 
         <div className="form-group">
@@ -98,6 +115,16 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="state">State</label>
+          <select id="state" value={state} onChange={(e) => setState(e.target.value)}>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+          </select>
         </div>
 
         <div className="button-group">

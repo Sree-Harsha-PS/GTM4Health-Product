@@ -43,6 +43,7 @@ const AdminUserAccess = () => {
             <table className="user-table">
               <thead>
                 <tr>
+                  <th>Sl No.</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
@@ -52,8 +53,9 @@ const AdminUserAccess = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
+                {users.map((user,index) => (
                   <tr key={user._id}>
+                    <td>{index+1}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.phone}</td>
