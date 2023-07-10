@@ -29,7 +29,7 @@ const Hospital = () => {
       // Clear the success message after 2 seconds
       setTimeout(() => {
           setHospitalStatus(null);
-      }, 2000);
+      }, 1000);
 
     } catch (error) {
       console.error(error);
@@ -41,7 +41,7 @@ const Hospital = () => {
 
   const renderHospitalStatusMessage = () => {
     if (hospitalStatus === 'success') {
-      return <div className="popup success">Hospital added successfully!</div>;
+      return <div className="popup success">Healthcare Centre added successfully!</div>;
     } else if (hospitalStatus === 'failure') {
       return (
         <div className="popup failure">
@@ -87,6 +87,7 @@ const Hospital = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Healthcare Centre Name"
+                  className="form-outline"
                 />
               </div>
               <div className="form-group">
@@ -97,6 +98,7 @@ const Hospital = () => {
                   value={docName}
                   onChange={(e) => setDocName(e.target.value)}
                   placeholder="Doctor Name"
+                  className="form-outline"
                 />
               </div>
               <div className="form-group">
@@ -107,6 +109,7 @@ const Hospital = () => {
                   value={docSpez}
                   onChange={(e) => setDocSpez(e.target.value)}
                   placeholder="Specialization"
+                  className="form-outline"
                 />
               </div>
               <div className="form-group">
@@ -117,6 +120,7 @@ const Hospital = () => {
                   value={mail}
                   onChange={(e) => setMail(e.target.value)}
                   placeholder="Contact Email"
+                  className="form-outline"
                 />
               </div>
               <div className="form-group">
@@ -127,6 +131,7 @@ const Hospital = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Contact Mobile"
+                  className="form-outline"
                 />
               </div>
               <button type="submit" className="hsubtn">Submit</button>

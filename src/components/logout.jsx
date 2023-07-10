@@ -1,7 +1,7 @@
 // Logout button
 //
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const LogoutButton = () => {
   const navigate = useNavigate();
@@ -10,10 +10,14 @@ const LogoutButton = () => {
     // Navigate to the logout page
     // Clear all tokens and data from local storage
     localStorage.clear();
-    navigate('/');
+    navigate("/");
   };
 
-  return <button className="loginn" onClick={handleLogout}>Logout</button>;
+  return (
+    <button className="user-menu-item" onClick={handleLogout}>
+      <i className="fas fa-sign-out-alt"></i> Logout
+    </button>
+  );
 };
 
 export default LogoutButton;

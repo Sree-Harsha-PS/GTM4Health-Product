@@ -1,7 +1,8 @@
 // Entire Login Page
 // User data is collected here.
 //
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
@@ -13,34 +14,29 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
-    // Check if the email and password fields are empty
     if (!email || !password) {
       console.log('Email and password are required');
       return;
     }
 
     try {
-      // Make a POST request to the server to authenticate the user
       const response = await axios.post('http://localhost:5000/api/login', {
         email,
         password,
       });
 
-
-      // Store the token in local storage
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
 
-
-      // Redirect to the appropriate dashboard 
       navigate('/dashboard');
     } catch (error) {
       console.error('Login failed', error);
-      // Clear the entered password field
       setPassword('');
     }
   };
+  
   
   return (
     <div className='page-view'>

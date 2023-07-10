@@ -1,7 +1,7 @@
 // Admin Logout component created
 //
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogoutButton = () => {
   const navigate = useNavigate();
@@ -10,10 +10,14 @@ const AdminLogoutButton = () => {
     // Navigate to the logout page
     // Clear all tokens and data from local storage
     localStorage.clear();
-    navigate('/admin');
+    navigate("/admin");
   };
 
-  return <button className="loginn" onClick={handleLogout}>Admin Logout</button>;
+  return (
+    <button className="user-menu-item" onClick={handleLogout}>
+      <i className="fas fa-sign-out-alt"></i> Admin Logout
+    </button>
+  );
 };
 
 export default AdminLogoutButton;

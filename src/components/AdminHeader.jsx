@@ -7,10 +7,15 @@ import Settings from "./Settings";
 import Help from "./Help";
 
 const AdminHeader = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [adminMenuOpen, setAdminMenuOpen] = useState(false);
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
+  };
+
+  const toggleAdminMenu = () => {
+    setAdminMenuOpen(!adminMenuOpen);
   };
 
   return (
@@ -18,10 +23,19 @@ const AdminHeader = () => {
       <Logo />
       <div className="buttons">
         <i className="fas fa-search fa-2x search-icon"></i>
-        <AdminLogoutButton />
-        <Settings />
-        <Help />
-        <i className="fas fa-user-circle fa-4x"></i> {/* Profile icon */}
+        <div className="user-menu">
+          <i
+            className="fas fa-user-circle fa-4x"
+            onClick={toggleAdminMenu}
+          ></i>
+          {adminMenuOpen && (
+            <div className="user-menu-items">
+              <AdminLogoutButton />
+              <Settings />
+              <Help />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

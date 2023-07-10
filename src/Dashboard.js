@@ -1,4 +1,6 @@
-import React from "react";
+//User dashboard page
+
+import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Header2 from "./components/Header2";
 import useAuth from "./components/useAuth";
@@ -6,6 +8,14 @@ import MenuBar from "./components/MenuBar";
 
 const Dashboard = () => {
   const isAuthenticated = useAuth();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
   if (!isAuthenticated) {
     // Optional: Show a loading state or return null while checking authentication
@@ -14,16 +24,16 @@ const Dashboard = () => {
 
   return (
     <div>
-    <Header2 />
-    <div className="d-content page-view">
-      <div className="dashboard">
-        <MenuBar />
-        <div className="dashboard-content">
-          <h1>Welcome to the GTM4Health!</h1>
+      <Header2 user={user}/>
+      <div className="d-content page-view">
+        <div className="dashboard">
+          <MenuBar />
+          <div className="dashboard-content">
+            <h1>Welcome to the GTM4Health, {user ? user.name : 'User'}!</h1>
+          </div>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };

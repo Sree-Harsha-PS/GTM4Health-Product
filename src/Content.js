@@ -8,14 +8,16 @@ import Header from "./components/Header";
 
 const Content = () => {
   return (
-    <div className="content page-view">
-      <Header />
-      <div className="card-container">
-        {cardsData.map((card, index) => (
-          <Card key={index} title={card.title} features={card.features} />
-        ))}
+    <div className="page-view">
+      <div className="content page-view">
+        <Header />
+        <div className="card-container">
+          {cardsData.map((card, index) => (
+            <Card key={index} title={card.title} features={card.features} />
+          ))}
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

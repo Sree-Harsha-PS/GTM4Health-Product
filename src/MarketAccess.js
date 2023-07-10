@@ -12,6 +12,14 @@ const MarketAccess = () => {
   const [pageSize, setPageSize] = useState(10);
   const [totalRows, setTotalRows] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
   useEffect(() => {
     fetchHospitals();
@@ -47,12 +55,15 @@ const handleNextPage = () => {
 
 return (
   <div className="page-view">
-    <Header2 />
+    <Header2 user={user} />
     <div className="d-content">
       <div className="dashboard">
         <Menubar />
         <div className="page-title">
-          <h1 className="page-title-child">Market Access: Healthcare Centers - City Wise</h1>
+          <h1 className="page-title-child"> Market Access </h1>
+        </div>
+        <div className="page-title">
+          <h1 className="page-title-child">Healthcare Centers - City Wise</h1>
         </div>
         <div className="page-display">
           <h4 className="total-rows">Total Healthcare Centers = {totalRows}</h4>

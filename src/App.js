@@ -58,7 +58,7 @@ export default function App() {
 //Landing Page
 function Home() {
   return (
-    <div className="landing-page page-view">
+    <div className="landing-page">
       <div className="content">
         <Content />
       </div>

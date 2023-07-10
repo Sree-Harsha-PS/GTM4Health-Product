@@ -147,7 +147,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-field">
-              <label htmlFor="role">What is your role* :</label>
+              <label htmlFor="role">Your role* :</label>
               <select
                 id="role"
                 value={role}
