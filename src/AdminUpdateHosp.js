@@ -120,8 +120,9 @@ const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
         <div className="form-group">
           <label htmlFor="state">State</label>
           <select id="state" value={state} onChange={(e) => setState(e.target.value)}>
-            <option value="Karnataka">Karnataka</option>
+            <option disabled value="">Select State</option>
             <option value="Maharashtra">Maharashtra</option>
+            <option value="Karnataka">Karnataka</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Telangana">Telangana</option>
           </select>

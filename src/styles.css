@@ -466,12 +466,14 @@ button[type="submit"]:hover {
   width: 100%;
   margin-bottom: 10rem;
   overflow-x: hidden;
+  height: auto;
 }
 
 .d-content {
   margin-left: 250px; /* Adjust this value based on the menu bar width */
   padding: 20px;
-  height: 200vh;
+  /*240vh*/
+  height: auto;
   /* max-height: 400vh; */
   /* margin-bottom: 100px; Adjust this value based on the footer height */
 }
@@ -629,20 +631,21 @@ button[type="submit"]:hover {
 
 .table-content{
   display: flex;
-  max-height: 210vh;
+  height: auto;
+  /* max-height: 210vh; */
   /* max-height: 100vh; */
   overflow-y: auto;
 }
 
 .hosp-content{
-  margin: 0 0 8rem 10rem;
+  margin: 0 0 4rem 4rem;
   max-width: 200vh;
   padding-bottom: 30px;
   /* max-height: 600vh; */
 }
 
 .hosp-content h1{
-  margin: 0 0 4rem 10rem;
+  margin: 0 0 4rem 2rem;
 }
 
 .hosp-content {

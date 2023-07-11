@@ -71,6 +71,16 @@ const Hospital = () => {
             {renderHospitalStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
+                <label htmlFor="state">State:</label>
+                <select id="state" required value={state} onChange={(e) => setState(e.target.value)}>
+                  <option disabled hidden value="">Select State</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Telangana">Telangana</option>
+                </select>
+              </div>
+              <div className="form-group">
                 <label htmlFor="city">City:</label>
                 <select id="city" required value={city} onChange={(e) => setCity(e.target.value)}>
                   <option disabled hidden value="">Select City</option>
@@ -80,16 +90,6 @@ const Hospital = () => {
                   <option value="Davanagere">Davanagere</option>
                   <option value="Shivamogga">Shivamogga</option>
                   <option value="Belgaum">Belgaum</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="state">State:</label>
-                <select id="state" required value={state} onChange={(e) => setState(e.target.value)}>
-                  <option disabled hidden value="">Select State</option>
-                  <option value="Karnataka">Karnataka</option>
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                  <option value="Telangana">Telangana</option>
                 </select>
               </div>
               <div className="form-group">
@@ -115,7 +115,7 @@ const Hospital = () => {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="docName">Doctor Name:</label>
+                <label htmlFor="docName">Contact Name:</label>
                 <input
                   type="text"
                   id="docName"
@@ -126,7 +126,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="docSpez">Specialization:</label>
+                <label htmlFor="docSpez">Role:</label>
                 <input
                   type="text"
                   id="docSpez"
