@@ -232,6 +232,7 @@ const Hospital = () => {
                   <option value="Jammu and Kashmir">Jammu and Kashmir</option>
                   <option value="Ladakh">Ladakh</option>
                 </select>
+                
               </div>
               <div className="form-group">
                 <label htmlFor="city">City:</label>
