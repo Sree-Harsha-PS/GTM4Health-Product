@@ -117,8 +117,8 @@ const HospitalPortal = () => {
                   <th>Infrastructure & Services</th>
                   <th>State</th>
                   <th>City</th>
-                  <th>Doctor Name</th>
-                  <th>Specialization</th>
+                  <th>Contact Name</th>
+                  <th>Role</th>
                   <th>Contact Email</th>
                   <th>Contact Number</th>
                   <th>Actions</th>
