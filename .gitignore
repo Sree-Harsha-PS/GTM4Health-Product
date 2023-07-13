@@ -62,7 +62,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
- 
+self.txt
+
+.gitignore
+
 # PyInstaller
 #  Usually these files are written by a <a href="https://www.jcchouinard.com/learn-python/">python</a> script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.

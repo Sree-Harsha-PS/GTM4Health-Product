@@ -68,15 +68,13 @@
 .card-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 2%;
   margin: 8%;
-  margin-top: 15rem;
 }
 
 .card {
   background-color: #daf5ff;
   border: 2px solid #000;
-  margin: 10px;
+  margin: 2rem;
   padding: 1.5%;
   border-radius: 5px;
   display: flex;
@@ -97,6 +95,7 @@
 .content {
   flex: 1;
   flex-direction: column;
+  height: auto;
   /* Adjust the spacing as needed */
 }
 
@@ -104,7 +103,7 @@
   margin-top: auto;
   background-color: black;
   color: white;
-  padding: 20px 5px 18px 0;
+  padding: 2rem .5rem 2rem 0;
   text-align: center;
   line-height: 1.5;
   width: 100%;
@@ -575,14 +574,15 @@ button[type="submit"]:hover {
   border: 2px solid #000;
 }
 
-.dashboard-content{
-  margin-left: 150px;
-  max-width: 600px;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  height: auto;
-  overflow-x: hidden;
+.dashboard-content {
+    margin-left: 55vh;
+    max-width: 250vh;
+    margin-bottom: 5rem;
+    padding-bottom: 3rem;
+    /* margin: auto; */
+    overflow-x: hidden;
 }
+
 
 .hsubtn{
   width: 50%;
@@ -626,6 +626,7 @@ button[type="submit"]:hover {
   background-color: #eaf2ff;
 }
 
+
 .user-table th:hover::after {
   content: "";
   position: absolute;
@@ -654,6 +655,7 @@ button[type="submit"]:hover {
   /* max-height: 600vh; */
 }
 
+
 .hosp-content h1{
   margin: 0 0 4rem 2rem;
 }
@@ -663,17 +665,33 @@ button[type="submit"]:hover {
   flex-direction: column;
   align-items: center;
   height: auto;
+
   /* max-height: 180vh; */
 }
+
+/* form.hospital-f {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* max-height: 100vh; */
+  /* max-width: 400vh; *
+  z-index: -2;
+  overflow-y:auto;
+} */
 
 form.hospital-f {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* max-height: 100vh; */
-  /* max-width: 400vh; */
-  overflow-y:auto;
+  position: relative;
+  /* z-index: -1; */
+
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
+  background-color: #dde6ed;
 }
+
+
 
 form.hospital-f .form-group {
   display: flex;
@@ -697,6 +715,7 @@ form.hospital-f .hsubtn {
   margin-top: 10px;
   width: 10rem;
   padding: 1rem;
+  margin: auto;
 }
 
 .page-view{
