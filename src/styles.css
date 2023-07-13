@@ -95,7 +95,6 @@
 .content {
   flex: 1;
   flex-direction: column;
-  height: auto;
   /* Adjust the spacing as needed */
 }
 
@@ -103,7 +102,7 @@
   margin-top: auto;
   background-color: black;
   color: white;
-  padding: 2rem .5rem 2rem 0;
+  padding: 20px 5px 18px 0;
   text-align: center;
   line-height: 1.5;
   width: 100%;
