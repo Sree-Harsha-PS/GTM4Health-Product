@@ -499,7 +499,7 @@ button[type="submit"]:hover {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
-  height: 110vh; /* Adjust the value based on the combined height of the header and footer */
+  height: 130vh; /* Adjust the value based on the combined height of the header and footer */
   position: absolute;
   left: 0;
   top: 150px; /* Adjust the value based on the header height */
@@ -1014,12 +1014,13 @@ form.hospital-f .hsubtn {
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
-  font-size: 16px;
+  /* font-size: 16px; */
   /* width: 100%; */
   margin-bottom: 1rem;
   margin-left: 2rem;
   width: 45vh;
   height: 30vh;
+  font-family: Arial, sans-serif;
   /* resize: none; */
 }
 /* Add additional styles as needed */

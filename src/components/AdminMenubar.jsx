@@ -26,7 +26,13 @@ const AdminMenuBar = () => {
       <a href="/admin/dashboard/View-Hospital" className="menu-link">
         <div className="menu-item">
           <i className="fas fa-search-location menu-icon"></i>
-          <span className="menu-text">View & Update Healthcare Centres</span>
+          <span className="menu-text">View & Update All Healthcare Centres</span>
+        </div>
+      </a>
+      <a href="/admin/dashboard/City-Hospital" className="menu-link">
+        <div className="menu-item">
+          <i className="fas fa-search-location menu-icon"></i>
+          <span className="menu-text">View & Update Healthcare Centres - City Wise</span>
         </div>
       </a>
       <a href="/admin/dashboard/Add-Distributors" className="menu-link">

@@ -20,6 +20,7 @@ import AdminUserAccess from './AdminUserAccess';
 import AdminFeatures from './AdminFeatures';
 import HospitalPortal from './AdminViewHosp';
 import MarketAccess from './MarketAccess';
+import CityPortal from './AdminCityHosp';
 //import PrivateRoute from './components/Privateroute';
 
 //Entry Function into the Product
@@ -44,6 +45,7 @@ export default function App() {
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
         <Route path='admin/dashboard/Add-Hospital' element={<Hospital />} />
         <Route path='admin/dashboard/View-Hospital' element={<HospitalPortal />} />
+        <Route path='admin/dashboard/City-Hospital' element={<CityPortal />} />
         <Route path='admin/dashboard/User-Dashboard' element={<AdminUserAccess />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
