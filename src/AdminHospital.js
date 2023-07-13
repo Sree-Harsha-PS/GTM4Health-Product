@@ -171,7 +171,7 @@ const Hospital = () => {
     } else if (state === "Ladakh") {
       return <option value="Leh">Leh</option>;
     } else {
-      return <option disabled value=''>State is required *</option>;
+      return <option disabled value=''>       State is required field* </option>;
     }
   };
 
@@ -186,8 +186,8 @@ const Hospital = () => {
             {renderHospitalStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
-                <label htmlFor="state">State</label>
-                <select id="state" value={state} onChange={handleStateChange}>
+                <label htmlFor="state">State :</label>
+                <select id="state" value={state} onChange={handleStateChange} className="form-outline">
                   <option disabled hidden value="">
                     Select State
                   </option>
@@ -208,9 +208,11 @@ const Hospital = () => {
                   <option value="Gujarat">Gujarat</option>
                   <option value="Haryana">Haryana</option>
                   <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
                   <option value="Jharkhand">Jharkhand</option>
                   <option value="Karnataka">Karnataka</option>
                   <option value="Kerala">Kerala</option>
+                  <option value="Ladakh">Ladakh</option>
                   <option value="Lakshadweep">Lakshadweep</option>
                   <option value="Madhya Pradesh">Madhya Pradesh</option>
                   <option value="Maharashtra">Maharashtra</option>
@@ -229,18 +231,17 @@ const Hospital = () => {
                   <option value="Uttar Pradesh">Uttar Pradesh</option>
                   <option value="Uttarakhand">Uttarakhand</option>
                   <option value="West Bengal">West Bengal</option>
-                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                  <option value="Ladakh">Ladakh</option>
                 </select>
                 
               </div>
               <div className="form-group">
-                <label htmlFor="city">City:</label>
+                <label htmlFor="city">City :</label>
                 <select
                   id="city"
                   required
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
+                  className="form-outline"
                 >
                   <option disabled hidden value="">
                     Select City
@@ -249,7 +250,7 @@ const Hospital = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="name">Centre Name:</label>
+                <label htmlFor="name">Centre Name :</label>
                 <input
                   type="text"
                   id="name"
@@ -261,7 +262,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="infraSer">Infrastructure & Services:</label>
+                <label htmlFor="infraSer">Infrastructure & Services :</label>
                 <textarea
                   id="infraSer"
                   value={infraSer}
@@ -271,7 +272,7 @@ const Hospital = () => {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="docName">Contact Name:</label>
+                <label htmlFor="docName">Contact Name :</label>
                 <input
                   type="text"
                   id="docName"
@@ -282,7 +283,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="docSpez">Role:</label>
+                <label htmlFor="docSpez">Role :</label>
                 <input
                   type="text"
                   id="docSpez"
@@ -293,7 +294,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="mail">Contact Email:</label>
+                <label htmlFor="mail">Contact Email :</label>
                 <input
                   type="text"
                   id="mail"
@@ -314,7 +315,7 @@ const Hospital = () => {
                   className="form-outline"
                 />
               </div>
-              <button type="submit" className="hsubtn">
+              <button type="submit" className="hsubtn login-btn">
                 Submit
               </button>
             </form>

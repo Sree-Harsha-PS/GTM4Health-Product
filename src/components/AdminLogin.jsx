@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header';
+// import Header from './Header';
 import Footer from './Footer';
+import LogoHeader from './Logoheader';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
@@ -78,7 +79,7 @@ const AdminLoginPage = () => {
 
   return (
     <div className='page-view'>
-      <Header />
+      <LogoHeader />
       <div className="login-container">
         <h1 className="signup-title">
           <span className='blue-t'>Admin</span> Login
