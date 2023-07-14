@@ -4,7 +4,6 @@ import AdminHeader from "./components/AdminHeader";
 import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
-import EditHospitalForm from "./AdminUpdateHosp";
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
 
 const CityPortal = () => {
@@ -25,11 +24,27 @@ const CityPortal = () => {
     }
   }, [isAuthenticated, currentPage, selectedState, selectedCity]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedState]);
+
   const fetchHospitals = async () => {
+    let url = `http://localhost:5000/api/hospital-portal?`;
+    
+    const params = new URLSearchParams();
+    params.append('page', currentPage);
+    params.append('limit', pageSize);
+  
+    if (selectedState !== "all") {
+      params.append('state', selectedState);
+    }
+  
+    if (selectedCity !== "all") {
+      params.append('city', selectedCity);
+    }
+  
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}&state=${selectedState}&city=${selectedCity}`
-      );
+      const response = await axios.get(url + params.toString());
       setHospitals(response.data.hospitals);
       setTotalRows(response.data.totalRows);
       setTotalPages(response.data.totalPages);
@@ -37,7 +52,7 @@ const CityPortal = () => {
       console.error(error);
     }
   };
-
+  
   const handleDeleteHospital = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this hospital?");
     if (!confirmed) {
@@ -107,17 +122,7 @@ const CityPortal = () => {
     return null;
   }
 
-  const filteredHospitals = hospitals.filter((hospital) => {
-    if (selectedState !== "all" && hospital.state !== selectedState) {
-      return false;
-    }
-    if (selectedCity !== "all" && hospital.city !== selectedCity) {
-      return false;
-    }
-    return true;
-  });
-
-  const displayedHospitals = filteredHospitals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const displayedHospitals = hospitals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   return (
     <div className="page-view">
@@ -151,7 +156,9 @@ const CityPortal = () => {
           <div className="page-display">
             <h4 className="total-rows">Total Healthcare Centers = {totalRows}</h4>
             <h4 className="right">
-              <i>Displaying Page {currentPage} of {totalPages}</i>
+              <i>
+                Displaying Page {currentPage} of {totalPages}
+              </i>
             </h4>
           </div>
           <div className="table-content">
