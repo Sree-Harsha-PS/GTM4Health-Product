@@ -95,7 +95,6 @@
 .content {
   flex: 1;
   flex-direction: column;
-  height: auto;
   /* Adjust the spacing as needed */
 }
 
@@ -103,7 +102,7 @@
   margin-top: auto;
   background-color: black;
   color: white;
-  padding: 2rem .5rem 2rem 0;
+  padding: 20px 5px 18px 0;
   text-align: center;
   line-height: 1.5;
   width: 100%;
@@ -380,9 +379,6 @@ button[type="submit"]:hover {
 
 /* popup - css */
 
-/* styles.css */
-/* styles.css */
-/* styles.css */
 .popup {
   position: fixed;
   top: 50%;
@@ -467,7 +463,7 @@ button[type="submit"]:hover {
   /* height: 150vh; */
   padding: 4rem 2rem 5rem 2rem;
   width: 100%;
-  margin-bottom: 10rem;
+  margin-bottom: 1rem;
   overflow-x: hidden;
   height: auto;
 }
@@ -476,7 +472,7 @@ button[type="submit"]:hover {
   margin-left: 250px; /* Adjust this value based on the menu bar width */
   padding: 20px;
   /*240vh*/
-  min-height: 130vh;
+  min-height: 150vh;
   height: auto;
   /* max-height: 400vh; */
   /* margin-bottom: 100px; Adjust this value based on the footer height */
@@ -577,8 +573,8 @@ button[type="submit"]:hover {
 .dashboard-content {
     margin-left: 55vh;
     max-width: 250vh;
-    margin-bottom: 5rem;
-    padding-bottom: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     /* margin: auto; */
     overflow-x: hidden;
 }
@@ -1022,6 +1018,11 @@ form.hospital-f .hsubtn {
   height: 30vh;
   font-family: Arial, sans-serif;
   /* resize: none; */
+}
+
+.addrx{
+  height: 20vh;
+  width: 40vh;
 }
 /* Add additional styles as needed */
 
