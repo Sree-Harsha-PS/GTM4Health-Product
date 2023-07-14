@@ -140,7 +140,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="infraSer">Infrastructure & Services:</label>
+                <label htmlFor="infraSer">Infrastructure & Services :</label>
                 <textarea
                   id="infraSer"
                   value={infraSer}
@@ -150,7 +150,7 @@ const Hospital = () => {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="docName">Contact Name:</label>
+                <label htmlFor="docName">Contact Name :</label>
                 <input
                   type="text"
                   id="docName"
@@ -161,7 +161,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="docSpez">Role:</label>
+                <label htmlFor="docSpez">Role :</label>
                 <input
                   type="text"
                   id="docSpez"
@@ -172,7 +172,7 @@ const Hospital = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="mail">Contact Email:</label>
+                <label htmlFor="mail">Contact Email :</label>
                 <input
                   type="text"
                   id="mail"
