@@ -3,19 +3,20 @@ import axios from 'axios';
 import Footer from './components/Footer';
 import AdminHeader from './components/AdminHeader';
 import AdminMenuBar from './components/AdminMenubar';
-import useAuth from './components/useAuth';
 import { stateOptions, getCityOptionsByState } from './cityOptions';
 
-const Hospital = () => {
+const Dealers = () => {
   const [name, setName] = useState('');
+  const [web,  setWeb] = useState('');
   const [state, setState] = useState('');
-  const [infraSer, setInfraSer] = useState('');
+  const [products, setProducts] = useState('');
+  const [address, setAddress] = useState('')
   const [city, setCity] = useState('');
-  const [docName, setDocName] = useState('');
-  const [docSpez, setDocSpez] = useState('');
+  const [dealerName, setDealerName] = useState('');
+  const [role, setRole] = useState('');
   const [mail, setMail] = useState('');
   const [phone, setPhone] = useState('');
-  const [hospitalStatus, setHospitalStatus] = useState(null);
+  const [dealerStatus, setDealerStatus] = useState(null);
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -25,48 +26,52 @@ const Hospital = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/dashboard/Add-Hospital', {
+      await axios.post('http://localhost:5000/api/admin/dashboard/Dealers', {
         name,
+        web,
+        address,
         city,
         state,
-        infraSer,
-        docName,
-        docSpez,
+        products,
+        dealerName,
+        role,
         mail,
         phone
       });
       setName('');
+      setWeb('');
+      setAddress('');
       setCity('');
-      setInfraSer('');
       setState('');
-      setDocName('');
-      setDocSpez('');
+      setProducts('');
+      setDealerName('');
+      setRole('');
       setMail('');
       setPhone('');
-      setHospitalStatus('success');
+      setDealerStatus('success');
 
       // Clear the success message after 2 seconds
       setTimeout(() => {
-        setHospitalStatus(null);
+        setDealerStatus(null);
       }, 1000);
     } catch (error) {
       console.error(error);
       console.log('Error response:', error.response);
-      setHospitalStatus('failure');
+      setDealerStatus('failure');
       // show an error message or perform any other error handling
     }
   };
 
-  const renderHospitalStatusMessage = () => {
-    if (hospitalStatus === 'success') {
-      return <div className="popup success">Healthcare Centre added successfully!</div>;
-    } else if (hospitalStatus === 'failure') {
-      const errorMessage = 'Healthcare Centre addition failed. Please try again.';
+  const renderDealerStatusMessage = () => {
+    if (dealerStatus === 'success') {
+      return <div className="popup success">Dealer-Distributor successfully registered!</div>;
+    } else if (dealerStatus === 'failure') {
+      const errorMessage = 'Dealer-Distributor failed to register. Please try again.';
       return (
         <div className="popup failure">
           {errorMessage}
           <br />
-          <button onClick={() => setHospitalStatus(null)}>Try Again</button>
+          <button onClick={() => setDealerStatus(null)}>Try Again</button>
         </div>
       );
     }
@@ -91,8 +96,8 @@ const Hospital = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="hosp-content">
-            <h1>Add Healthcare Centres</h1>
-            {renderHospitalStatusMessage()}
+            <h1>Add Dealers - Distributors</h1>
+            {renderDealerStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
                 <label htmlFor="state">State* :</label>
@@ -128,45 +133,66 @@ const Hospital = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="name">Centre Name* :</label>
+                <label htmlFor="name">Company Name* :</label>
                 <input
                   type="text"
                   id="name"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Healthcare Centre Name"
+                  placeholder="Company Name"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="infraSer">Infrastructure & Services :</label>
+                <label htmlFor="addrx">Address :</label>
                 <textarea
-                  id="infraSer"
-                  value={infraSer}
-                  onChange={(e) => setInfraSer(e.target.value)}
-                  placeholder="Infrastructure & Services"
+                  id="addrx"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Address"
+                  className="form-outline textarea addrx"
+                ></textarea>
+              </div>
+              <div className="form-group">
+                <label htmlFor="name">Website :</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={web}
+                  onChange={(e) => setWeb(e.target.value)}
+                  placeholder="Company Website"
+                  className="form-outline"
+                />
+              </div>
+              <div className='form-group'>
+              <label htmlFor="prod">Products Managed:</label>
+                <textarea
+                  id="prod"
+                  value={products}
+                  onChange={(e) => setProducts(e.target.value)}
+                  placeholder="Managed Products & Services"
                   className="form-outline textarea"
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="docName">Contact Name :</label>
+                <label htmlFor="dealerName">Contact Name :</label>
                 <input
                   type="text"
-                  id="docName"
-                  value={docName}
-                  onChange={(e) => setDocName(e.target.value)}
+                  id="dealerName"
+                  value={dealerName}
+                  onChange={(e) => setDealerName(e.target.value)}
                   placeholder="Contact Name"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="docSpez">Role :</label>
+                <label htmlFor="role">Role :</label>
                 <input
                   type="text"
-                  id="docSpez"
-                  value={docSpez}
-                  onChange={(e) => setDocSpez(e.target.value)}
+                  id="role"
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
                   placeholder="Role"
                   className="form-outline"
                 />
@@ -205,4 +231,4 @@ const Hospital = () => {
   );
 };
 
-export default Hospital;
+export default Dealers;
