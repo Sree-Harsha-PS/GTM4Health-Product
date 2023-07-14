@@ -77,6 +77,8 @@ return (
               <tr>
                 <th>Sl No.</th>
                 <th>Name</th>
+                <th>Infrastructure & Services</th>
+                <th>State</th>
                 <th>City</th>
                 <th>Doctor Name</th>
                 <th>Specialization</th>
@@ -89,6 +91,8 @@ return (
                 <tr key={hospital._id}>
                   <td>{(currentPage - 1) * pageSize + index + 1}</td>
                   <td>{hospital.name}</td>
+                  <td>{hospital.infraSer}</td>
+                  <td>{hospital.state}</td>
                   <td>{hospital.city}</td>
                   <td>{hospital.docName}</td>
                   <td>{hospital.docSpez}</td>
