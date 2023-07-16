@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Dealer = require('../models/dealer');
 const { query, validationResult } = require('express-validator');
-//Enhance Portal & Register DD Ver 1.2.11
+
 // Create a new dealer
 router.post('/', async (req, res) => {
   try {
