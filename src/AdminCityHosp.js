@@ -29,17 +29,17 @@ const CityPortal = () => {
   }, [selectedState]);
 
   const fetchHospitals = async () => {
-    let url = `http://localhost:5000/api/hospital-portal?`;
-    
+    let url = 'http://localhost:5000/api/hospital-portal?';
+  
     const params = new URLSearchParams();
     params.append('page', currentPage);
     params.append('limit', pageSize);
   
-    if (selectedState !== "all") {
+    if (selectedState !== 'all') {
       params.append('state', selectedState);
     }
   
-    if (selectedCity !== "all") {
+    if (selectedCity !== 'all') {
       params.append('city', selectedCity);
     }
   
@@ -52,6 +52,8 @@ const CityPortal = () => {
       console.error(error);
     }
   };
+  
+  
   
   const handleDeleteHospital = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this hospital?");
@@ -102,9 +104,10 @@ const CityPortal = () => {
 
   const handleNextPage = () => {
     if (!isLastPage) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage(prevPage => prevPage + 1);
     }
   };
+  
 
   const handleStateChange = (event) => {
     setSelectedState(event.target.value);
@@ -122,7 +125,10 @@ const CityPortal = () => {
     return null;
   }
 
-  const displayedHospitals = hospitals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    const displayedHospitals = hospitals;
+
+
+  // const displayedHospitals = hospitals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   return (
     <div className="page-view">
