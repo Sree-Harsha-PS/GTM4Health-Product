@@ -1,11 +1,10 @@
-// backend/rt/hospview.js
-
 const express = require('express');
 const router = express.Router();
 const Hospital = require('../models/hospital');
 const { query, validationResult } = require('express-validator');
 
 // Routes
+//Dealer's Pagination, Filtration & Update V1.2.12
 router.get(
   '/',
   [
@@ -26,12 +25,18 @@ router.get(
 
       // Build query conditions
       const conditions = {};
-      if (state) {
+      if (state && state !== 'all') {
         conditions.state = state;
       }
-      if (city) {
+      if (city && city !== 'all') {
         conditions.city = city;
       }
+
+      // Execute the query to get the total count of hospitals
+      const totalHospitals = await Hospital.countDocuments(conditions);
+
+      // Calculate total pages for pagination
+      const totalPages = Math.ceil(totalHospitals / parseInt(limit));
 
       // Calculate skip value for pagination
       const skip = (parseInt(page) - 1) * parseInt(limit);
@@ -41,13 +46,10 @@ router.get(
         .skip(skip)
         .limit(parseInt(limit));
 
-      // Count total documents for pagination
-      const totalHospitals = await Hospital.countDocuments(conditions);
-
       res.json({
         hospitals,
         totalRows: totalHospitals,
-        totalPages: Math.ceil(totalHospitals / parseInt(limit)),
+        totalPages,
       });
     } catch (error) {
       console.error(error);
@@ -57,8 +59,6 @@ router.get(
 );
 
 module.exports = router;
-
-
 
 // Fetch all hospitals
 // router.get("/", async (req, res) => {

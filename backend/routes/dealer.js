@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Dealer = require('../models/dealer');
+const { query, validationResult } = require('express-validator');
 //Enhance Portal & Register DD Ver 1.2.11
 // Create a new dealer
 router.post('/', async (req, res) => {
@@ -31,7 +32,7 @@ router.delete('/delete-dealer/:id', async (req, res) => {
 });
 
 // Update a hospital by ID
-router.put('/update-dealer/:id', async (req, res) => {
+router.put('/update-dealers/:id', async (req, res) => {
   const { id } = req.params;
   const updatedData = req.body.data;
 
@@ -40,7 +41,7 @@ router.put('/update-dealer/:id', async (req, res) => {
       new: true,
       runValidators: true,
     });
-    res.json(updatedHospital);
+    res.json(updatedDealer);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -48,7 +49,7 @@ router.put('/update-dealer/:id', async (req, res) => {
 
 // Routes
 router.get(
-    '/view-dealers/',
+    '/dealers-portal/',
     [
       query('page').optional().isInt({ min: 1 }).toInt(),
       query('limit').optional().isInt({ min: 1 }).toInt(),
