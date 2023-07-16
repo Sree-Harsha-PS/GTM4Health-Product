@@ -22,6 +22,7 @@ import HospitalPortal from './AdminViewHosp';
 import MarketAccess from './MarketAccess';
 import CityPortal from './AdminCityHosp';
 import Dealers from './AdminDealers';
+import DealerPortal from './AdminViewDealer';
 //import PrivateRoute from './components/Privateroute';
 
 //Entry Function into the Product
@@ -49,6 +50,7 @@ export default function App() {
         <Route path='admin/dashboard/City-Hospital' element={<CityPortal />} />
         <Route path='admin/dashboard/User-Dashboard' element={<AdminUserAccess />} />
         <Route path='admin/dashboard/Add-Distributors' element={<Dealers />} />
+        <Route path='admin/dashboard/View-Distributors' element={<DealerPortal />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />
