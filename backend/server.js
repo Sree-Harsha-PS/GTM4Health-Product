@@ -1,7 +1,7 @@
 // This module connects to router and router connects to Mongodb
 // express.js is the middleware.
 // Import dependencies
-
+//Enhance Portal & Register DD Ver 1.2.11
 const express = require('express');
 const cors = require('cors'); // Used for extracting mongodb database here.
 const mongoose = require('mongoose'); // for connecting to mongodb using ENV variable string.
@@ -40,12 +40,14 @@ const adminLoginRouter = require('./routes/adminLogin');
 const userRouter = require('./routes/users');
 const hospitalPortalRouter = require('./routes/hospPortal');
 const dealerRouter = require('./routes/dealer');
+const productRouter = require('./routes/products');
 // Use routes
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/admin', adminLoginRouter);
 app.use('/api/admin/dashboard/Add-Hospital', hospitalRouter); 
 app.use('/api/admin/dashboard/Dealers',dealerRouter);
+app.use('/api/admin/dashboard/Products', productRouter);
 // app.use('/api/admin/dashboard/update-hospital', hospitalRouter); 
 // app.use('/api/admin/dashboard/delete-hospital/',hospitalRouter)
 app.use('/api/users',userRouter);
@@ -57,3 +59,4 @@ app.use('/api/hospital-portal',hospitalPortalRouter);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
