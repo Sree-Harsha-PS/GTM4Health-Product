@@ -16,6 +16,7 @@ const Dealers = () => {
   const [role, setRole] = useState('');
   const [mail, setMail] = useState('');
   const [phone, setPhone] = useState('');
+  const [GST,setGST] = useState('')
   const [dealerStatus, setDealerStatus] = useState(null);
 
   const handleStateChange = (e) => {
@@ -36,7 +37,8 @@ const Dealers = () => {
         dealerName,
         role,
         mail,
-        phone
+        phone,
+        GST
       });
       setName('');
       setWeb('');
@@ -48,6 +50,7 @@ const Dealers = () => {
       setRole('');
       setMail('');
       setPhone('');
+      setGST('');
       setDealerStatus('success');
 
       // Clear the success message after 2 seconds
@@ -64,9 +67,9 @@ const Dealers = () => {
 
   const renderDealerStatusMessage = () => {
     if (dealerStatus === 'success') {
-      return <div className="popup success">Dealer-Distributor successfully registered!</div>;
+      return <div className="popup success">MedTech-Company successfully registered!</div>;
     } else if (dealerStatus === 'failure') {
-      const errorMessage = 'Dealer-Distributor failed to register. Please try again.';
+      const errorMessage = 'MedTech-Company failed to register. Please try again.';
       return (
         <div className="popup failure">
           {errorMessage}
@@ -96,7 +99,7 @@ const Dealers = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="hosp-content">
-            <h1>Add Dealers - Distributors</h1>
+            <h1>Add MedTech-Companies</h1>
             {renderDealerStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
@@ -216,6 +219,17 @@ const Dealers = () => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Contact Mobile"
+                  className="form-outline"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">GST No.:</label>
+                <input
+                  type="text"
+                  id="phone"
+                  value={GST}
+                  onChange={(e) => setGST(e.target.value)}
+                  placeholder="Company Registered GST Number"
                   className="form-outline"
                 />
               </div>
