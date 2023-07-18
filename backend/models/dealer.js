@@ -37,6 +37,9 @@ const dealerSchema = new mongoose.Schema({
   phone: {
     type: String,
   },
+  GST: {
+    type: String,
+  }
 });
 
 module.exports = mongoose.model('Dealer', dealerSchema);
