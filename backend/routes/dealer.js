@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Dealer = require('../models/dealer');
 const { query, validationResult } = require('express-validator');
-
+//Enhance Portal & Register DD Ver 1.2.11
 // Create a new dealer
 router.post('/', async (req, res) => {
   try {
     console.log('Dealer creation request received');
-    const { name, web, address, city, state, products, dealerName, role, mail, phone } = req.body;
-    const dealer = new Dealer({ name, web, address, city, state, products, dealerName, role, mail, phone });
+    const { name, web, address, city, state, products, dealerName, role, mail, phone, GST } = req.body;
+    const dealer = new Dealer({ name, web, address, city, state, products, dealerName, role, mail, phone, GST });
     const savedDealer = await dealer.save();
     res.status(201).json({ message: 'Dealer created successfully' });
   } catch (error) {
