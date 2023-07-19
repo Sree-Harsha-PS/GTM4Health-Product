@@ -1,17 +1,15 @@
-// Stores D_D Records
-// Defined the dealer-distributors here.
-
 const mongoose = require('mongoose');
+// Cascade Menubar & Add Products v1.2.14
 
-const dealerSchema = new mongoose.Schema({
-  name: {
+const productSchema = new mongoose.Schema({
+  companyName: {
     type: String,
-    required: true, // Name is mandatory
+    required: true, // Company Name is mandatory
   },
-  web:{
+  website: {
     type: String,
   },
-  address:{
+  address: {
     type: String,
   },
   city: {
@@ -22,24 +20,30 @@ const dealerSchema = new mongoose.Schema({
     type: String,
     required: true, // State is mandatory
   },
-  products: {
+  productName: {
     type: String,
   },
-  dealerName: {
+  productCode: {
     type: String,
   },
-  role: {
+  description: {
     type: String,
   },
-  mail: {
+  hsnCode: {
     type: String,
   },
-  phone: {
+  qtySets: {
+    type: String,
+  },
+  unitPrice: {
+    type: String,
+  },
+  totalPrice: {
     type: String,
   },
   GST: {
     type: String,
-  }
+  },
 });
 
-module.exports = mongoose.model('Dealer', dealerSchema);
+module.exports = mongoose.model('Product', productSchema);

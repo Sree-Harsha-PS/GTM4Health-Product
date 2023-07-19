@@ -12,7 +12,8 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
   const [products, setProducts] = useState(dealer.products);
   const [state, setState] = useState(dealer.state);
   const [address, setAddress] = useState(dealer.address);
-  const [web,setWeb] = useState(dealer.web)
+  const [web, setWeb] = useState(dealer.web);
+  const[GST,setGST] = useState(dealer.GST);
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -30,6 +31,7 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
     setState(dealer.state);
     setAddress(dealer.address);
     setWeb(dealer.web);
+    setGST(dealer.GST);
   }, [dealer]);
 
   const handleSubmit = (e) => {
@@ -45,14 +47,20 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
       state,
       address,
       web,
+      GST,
     };
     onUpdate(dealer._id, updatedData);
   };
 
   const renderCityOptions = () => {
     const cities = getCityOptionsByState(state);
-    if(!state)
-      return     <option disabled value=''> State is Mandatory field * </option>
+    if (!state) {
+      return (
+        <option disabled value="">
+          State is a mandatory field *
+        </option>
+      );
+    }
     return cities.map((city) => (
       <option key={city.value} value={city.value}>
         {city.label}
@@ -70,7 +78,7 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
 
   return (
     <div className="edit-form">
-      <h2>Edit Dealer-Distributors</h2>
+      <h2>Edit MedTech Companies</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name *</label>
@@ -79,6 +87,7 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Company Name"
             required
           />
         </div>
@@ -106,52 +115,34 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="prod">Products Managed</label>
-          <textarea
-            id="prod"
-            value={products}
-            onChange={(e) => setProducts(e.target.value)}
-            placeholder="Products Managed & Services"
-            className="textarea"
-          ></textarea>
-        </div>
-        <div className="form-group">
-            <label htmlFor="addrx">Address :</label>
-            <textarea
-              id="addrx"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="Address"
-              className="form-outline textarea addrx"
-            ></textarea>
-        </div>
-        <div className="form-group">
-            <label htmlFor="name">Website :</label>
-            <input
-              type="text"
-              id="name"
-              value={web}
-              onChange={(e) => setWeb(e.target.value)}
-              placeholder="Company Website"
-              className="form-outline"
-            />
-        </div>
-        <div className="form-group">
-          <label htmlFor="dName">Contact Name</label>
+          <label htmlFor="web">Website:</label>
           <input
             type="text"
-            id="dName"
-            value={dealerName}
-            onChange={(e) => setDocName(e.target.value)}
+            id="web"
+            value={web}
+            onChange={(e) => setWeb(e.target.value)}
+            placeholder="Company Website"
+            className="form-outline"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="dSpez">Role</label>
+          <label htmlFor="dealerName">Contact Name</label>
           <input
             type="text"
-            id="dSpez"
+            id="dealerName"
+            value={dealerName}
+            onChange={(e) => setDealerName(e.target.value)}
+            placeholder="Contact Name"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="role">Role</label>
+          <input
+            type="text"
+            id="role"
             value={role}
             onChange={(e) => setRole(e.target.value)}
+            placeholder="Role"
           />
         </div>
         <div className="form-group">
@@ -161,6 +152,7 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
             id="mail"
             value={mail}
             onChange={(e) => setMail(e.target.value)}
+            placeholder="Email Address"
           />
         </div>
         <div className="form-group">
@@ -170,7 +162,39 @@ const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            placeholder="Contact Number"
           />
+        </div>
+        <div className="form-group">
+        <div className="form-group">
+            <label htmlFor="phone">GST No.:</label>
+            <input
+              type="text"
+              id="phone"
+              value={GST}
+              onChange={(e) => setGST(e.target.value)}
+              placeholder="Company Registered GST Number"
+              className="form-outline"
+            />
+          </div>
+          <label htmlFor="products">Products Managed</label>
+          <textarea
+            id="products"
+            value={products}
+            onChange={(e) => setProducts(e.target.value)}
+            placeholder="Products Managed & Services"
+            className="textarea"
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">Address</label>
+          <textarea
+            id="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Address"
+            className="form-outline textarea addrx"
+          ></textarea>
         </div>
         <div className="button-group">
           <button type="submit" className="btn-primary">

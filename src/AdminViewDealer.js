@@ -138,11 +138,11 @@ const DealerPortal = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="page-title">
-            <h1 className="page-title-child">Dealers-Distributors</h1>
+            <h1 className="page-title-child">MedTech-Companies</h1>
           </div>
           <div className="filter-container">
-            <label htmlFor="state-select">State:</label>
-            <select id="state-select" value={selectedState} className="form-outline" onChange={handleStateChange}>
+            <label className="f-label" htmlFor="state-select">State:</label>
+            <select id="state-select" value={selectedState} className="form-outline f-select" onChange={handleStateChange}>
               <option value="all">All</option>
               {stateOptions.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -150,8 +150,8 @@ const DealerPortal = () => {
                 </option>
               ))}
             </select>
-            <label htmlFor="city-select">City:</label>
-            <select id="city-select" value={selectedCity} className="form-outline" onChange={handleCityChange}>
+            <label className="f-label" htmlFor="city-select">City:</label>
+            <select id="city-select" value={selectedCity} className="form-outline f-select" onChange={handleCityChange}>
               <option value="all">All</option>
               {getCityOptionsByState(selectedState).map((city) => (
                 <option key={city.value} value={city.value}>
@@ -161,7 +161,7 @@ const DealerPortal = () => {
             </select>
           </div>
           <div className="page-display">
-            <h4 className="total-rows">Total Dealers-Distributors = {totalRows}</h4>
+            <h4 className="total-rows">Total MedTech-Companies = {totalRows}</h4>
             <h4 className="right">
               <i>
                 Displaying Page {currentPage} of {totalPages}
@@ -183,6 +183,7 @@ const DealerPortal = () => {
                   <th>Role</th>
                   <th>Contact Email</th>
                   <th>Contact Number</th>
+                  <th>GST No.</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -200,6 +201,7 @@ const DealerPortal = () => {
                     <td>{dealer.role}</td>
                     <td>{dealer.mail}</td>
                     <td>{dealer.phone}</td>
+                    <td>{dealer.GST}</td>
                     <td>
                       <button className="edit-button" onClick={() => handleEditDealer(dealer)}>
                         <i className="fas fa-pencil-alt"></i>

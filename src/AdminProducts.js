@@ -5,19 +5,21 @@ import AdminHeader from './components/AdminHeader';
 import AdminMenuBar from './components/AdminMenubar';
 import { stateOptions, getCityOptionsByState } from './cityOptions';
 
-const Dealers = () => {
-  const [name, setName] = useState('');
-  const [web,  setWeb] = useState('');
+const Products = () => {
+  const [companyName, setCompanyName] = useState('');
+  const [website, setWebsite] = useState('');
+  const [address, setAddress] = useState('');
+  const [productName, setProductName] = useState('');
+  const [productCode, setProductCode] = useState('');
+  const [description, setDescription] = useState('');
+  const [hsnCode, setHsnCode] = useState('');
+  const [qtySets, setQtySets] = useState('');
+  const [unitPrice, setUnitPrice] = useState('');
+  const [totalPrice, setTotalPrice] = useState('');
   const [state, setState] = useState('');
-  const [products, setProducts] = useState('');
-  const [address, setAddress] = useState('')
   const [city, setCity] = useState('');
-  const [dealerName, setDealerName] = useState('');
-  const [role, setRole] = useState('');
-  const [mail, setMail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [GST,setGST] = useState('')
-  const [dealerStatus, setDealerStatus] = useState(null);
+  const[GST,setGST] = useState('');
+  const [productStatus, setProductStatus] = useState(null);
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -27,54 +29,58 @@ const Dealers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/dashboard/Dealers', {
-        name,
-        web,
+      await axios.post('http://localhost:5000/api/admin/dashboard/Products', {
+        companyName,
+        website,
         address,
-        city,
+        productName,
+        productCode,
+        description,
+        hsnCode,
+        qtySets,
+        unitPrice,
+        totalPrice,
         state,
-        products,
-        dealerName,
-        role,
-        mail,
-        phone,
+        city,
         GST
       });
-      setName('');
-      setWeb('');
+      setCompanyName('');
+      setWebsite('');
       setAddress('');
-      setCity('');
+      setProductName('');
+      setProductCode('');
+      setDescription('');
+      setHsnCode('');
+      setQtySets('');
+      setUnitPrice('');
+      setTotalPrice('');
       setState('');
-      setProducts('');
-      setDealerName('');
-      setRole('');
-      setMail('');
-      setPhone('');
+      setCity('');
       setGST('');
-      setDealerStatus('success');
+      setProductStatus('success');
 
       // Clear the success message after 2 seconds
       setTimeout(() => {
-        setDealerStatus(null);
+        setProductStatus(null);
       }, 1000);
     } catch (error) {
       console.error(error);
       console.log('Error response:', error.response);
-      setDealerStatus('failure');
+      setProductStatus('failure');
       // show an error message or perform any other error handling
     }
   };
 
-  const renderDealerStatusMessage = () => {
-    if (dealerStatus === 'success') {
-      return <div className="popup success">MedTech-Company successfully registered!</div>;
-    } else if (dealerStatus === 'failure') {
-      const errorMessage = 'MedTech-Company failed to register. Please try again.';
+  const renderProductStatusMessage = () => {
+    if (productStatus === 'success') {
+      return <div className="popup success">Product successfully added!</div>;
+    } else if (productStatus === 'failure') {
+      const errorMessage = 'Failed to add product. Please try again.';
       return (
         <div className="popup failure">
           {errorMessage}
           <br />
-          <button onClick={() => setDealerStatus(null)}>Try Again</button>
+          <button onClick={() => setProductStatus(null)}>Try Again</button>
         </div>
       );
     }
@@ -83,8 +89,8 @@ const Dealers = () => {
 
   const renderCityOptions = () => {
     const cities = getCityOptionsByState(state);
-    if(!state)
-    return     <option disabled value=''> State is Mandatory field * </option>
+    if (!state)
+      return <option disabled value=''>State is a mandatory field *</option>
     return cities.map((city) => (
       <option key={city.value} value={city.value}>
         {city.label}
@@ -99,11 +105,11 @@ const Dealers = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="hosp-content">
-            <h1>Add MedTech-Companies</h1>
-            {renderDealerStatusMessage()}
+            <h1>Add Products</h1>
+            {renderProductStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
               <div className="form-group">
-                <label htmlFor="state">State* :</label>
+                <label htmlFor="state">State*:</label>
                 <select
                   id="state"
                   value={state}
@@ -121,7 +127,7 @@ const Dealers = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="city">City* :</label>
+                <label htmlFor="city">City*:</label>
                 <select
                   id="city"
                   required
@@ -136,21 +142,32 @@ const Dealers = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="name">Company Name* :</label>
+                <label htmlFor="companyName">Company Name*:</label>
                 <input
                   type="text"
-                  id="name"
+                  id="companyName"
                   required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="Company Name"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="addrx">Address :</label>
+                <label htmlFor="website">Website URL:</label>
+                <input
+                  type="text"
+                  id="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  placeholder="Website URL"
+                  className="form-outline"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="address">Address:</label>
                 <textarea
-                  id="addrx"
+                  id="address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="Address"
@@ -158,79 +175,89 @@ const Dealers = () => {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="name">Website :</label>
+                <label htmlFor="productName">Product Name:</label>
                 <input
                   type="text"
-                  id="name"
-                  value={web}
-                  onChange={(e) => setWeb(e.target.value)}
-                  placeholder="Company Website"
+                  id="productName"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  placeholder="Product Name"
                   className="form-outline"
                 />
               </div>
-              <div className='form-group'>
-              <label htmlFor="prod">Products Managed:</label>
+              <div className="form-group">
+                <label htmlFor="productCode">Product Code:</label>
+                <input
+                  type="text"
+                  id="productCode"
+                  value={productCode}
+                  onChange={(e) => setProductCode(e.target.value)}
+                  placeholder="Product Code"
+                  className="form-outline"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">Description:</label>
                 <textarea
-                  id="prod"
-                  value={products}
-                  onChange={(e) => setProducts(e.target.value)}
-                  placeholder="Managed Products & Services"
+                  id="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description"
                   className="form-outline textarea"
                 ></textarea>
               </div>
               <div className="form-group">
-                <label htmlFor="dealerName">Contact Name :</label>
+                <label htmlFor="hsnCode">HSN Code:</label>
                 <input
                   type="text"
-                  id="dealerName"
-                  value={dealerName}
-                  onChange={(e) => setDealerName(e.target.value)}
-                  placeholder="Contact Name"
+                  id="hsnCode"
+                  value={hsnCode}
+                  onChange={(e) => setHsnCode(e.target.value)}
+                  placeholder="HSN Code"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="role">Role :</label>
+                <label htmlFor="qtySets">Qty/Sets:</label>
                 <input
                   type="text"
-                  id="role"
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  placeholder="Role"
+                  id="qtySets"
+                  value={qtySets}
+                  onChange={(e) => setQtySets(e.target.value)}
+                  placeholder="Qty/Sets"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="mail">Contact Email :</label>
+                <label htmlFor="unitPrice">Unit Price:</label>
                 <input
                   type="text"
-                  id="mail"
-                  value={mail}
-                  onChange={(e) => setMail(e.target.value)}
-                  placeholder="Contact Email"
+                  id="unitPrice"
+                  value={unitPrice}
+                  onChange={(e) => setUnitPrice(e.target.value)}
+                  placeholder="Unit Price"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Contact Mobile:</label>
+                <label htmlFor="totalPrice">Total Price:</label>
                 <input
                   type="text"
-                  id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Contact Mobile"
+                  id="totalPrice"
+                  value={totalPrice}
+                  onChange={(e) => setTotalPrice(e.target.value)}
+                  placeholder="Total Price"
                   className="form-outline"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">GST No.:</label>
+                <label htmlFor="GST">GST :</label>
                 <input
                   type="text"
-                  id="phone"
+                  id="GST"
                   value={GST}
                   onChange={(e) => setGST(e.target.value)}
-                  placeholder="Company Registered GST Number"
-                  className="form-outline"
+                  placeholder="GST"
                 />
               </div>
               <button type="submit" className="hsubtn login-btn">
@@ -245,4 +272,4 @@ const Dealers = () => {
   );
 };
 
-export default Dealers;
+export default Products;

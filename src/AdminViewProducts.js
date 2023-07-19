@@ -5,12 +5,13 @@ import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
+import EditProductForm from "./AdminUpdateProduct";
 
-const CityPortal = () => {
+const ProductPortal = () => {
   const isAuthenticated = useAuth();
-  const [hospitals, setHospitals] = useState([]);
+  const [products, setProducts] = useState([]);
   const [editFormVisible, setEditFormVisible] = useState(false);
-  const [selectedHospital, setSelectedHospital] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [totalRows, setTotalRows] = useState(0);
@@ -20,7 +21,7 @@ const CityPortal = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      fetchHospitals();
+      fetchProducts();
     }
   }, [isAuthenticated, currentPage, selectedState, selectedCity]);
 
@@ -28,8 +29,8 @@ const CityPortal = () => {
     setCurrentPage(1);
   }, [selectedState]);
 
-  const fetchHospitals = async () => {
-    let url = 'http://localhost:5000/api/hospital-portal?';
+  const fetchProducts = async () => {
+    let url = 'http://localhost:5000/api/admin/dashboard/Products/products-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -45,7 +46,7 @@ const CityPortal = () => {
   
     try {
       const response = await axios.get(url + params.toString());
-      setHospitals(response.data.hospitals);
+      setProducts(response.data.products);
       setTotalRows(response.data.totalRows);
       setTotalPages(response.data.totalPages);
     } catch (error) {
@@ -53,43 +54,41 @@ const CityPortal = () => {
     }
   };
   
-  
-  
-  const handleDeleteHospital = async (id) => {
-    const confirmed = window.confirm("Are you sure you want to delete this hospital?");
+  const handleDeleteProduct = async (id) => {
+    const confirmed = window.confirm("Are you sure you want to delete this product?");
     if (!confirmed) {
       return;
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
-      setHospitals(hospitals.filter((hospital) => hospital._id !== id));
-      console.log("Hospital deleted successfully");
+      await axios.delete(`http://localhost:5000/api/admin/dashboard/Products/delete-product/${id}`);
+      setProducts(products.filter((product) => product._id !== id));
+      console.log("Product deleted successfully");
     } catch (error) {
       console.error(error);
-      console.log("Error deleting hospital");
+      console.log("Error deleting product");
     }
   };
 
-  const handleEditHospital = (hospital) => {
-    setSelectedHospital(hospital);
+  const handleEditProduct = (product) => {
+    setSelectedProduct(product);
     setEditFormVisible(true);
   };
 
-  const handleUpdateHospital = async (id, updatedData) => {
+  const handleUpdateProduct = async (id, updatedData) => {
     try {
       const requestData = {
         data: updatedData,
       };
 
-      await axios.put(`http://localhost:5000/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
+      await axios.put(`http://localhost:5000/api/admin/dashboard/Products/update-product/${id}`, requestData);
       setEditFormVisible(false);
-      setSelectedHospital(null);
-      fetchHospitals();
-      console.log("Hospital updated successfully");
+      setSelectedProduct(null);
+      fetchProducts();
+      console.log("Product updated successfully");
     } catch (error) {
       console.error(error);
-      console.log("Error updating hospital");
+      console.log("Error updating product");
     }
   };
 
@@ -107,7 +106,6 @@ const CityPortal = () => {
       setCurrentPage(prevPage => prevPage + 1);
     }
   };
-  
 
   const handleStateChange = (event) => {
     setSelectedState(event.target.value);
@@ -125,10 +123,7 @@ const CityPortal = () => {
     return null;
   }
 
-    const displayedHospitals = hospitals;
-
-
-  // const displayedHospitals = hospitals.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const displayedProducts = products;
 
   return (
     <div className="page-view">
@@ -137,11 +132,11 @@ const CityPortal = () => {
         <div className="dashboard">
           <AdminMenuBar />
           <div className="page-title">
-            <h1 className="page-title-child">Healthcare Centres</h1>
+            <h1 className="page-title-child">Products</h1>
           </div>
           <div className="filter-container">
             <label className="f-label"  htmlFor="state-select">State:</label>
-            <select className="f-select" id="state-select" value={selectedState} onChange={handleStateChange}>
+            <select id="state-select" value={selectedState} className="form-outline f-select" onChange={handleStateChange}>
               <option value="all">All</option>
               {stateOptions.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -149,8 +144,8 @@ const CityPortal = () => {
                 </option>
               ))}
             </select>
-            <label className="f-label"  htmlFor="city-select">City:</label>
-            <select className="f-select"  id="city-select" value={selectedCity} onChange={handleCityChange}>
+            <label className="f-label" htmlFor="city-select">City:</label>
+            <select id="city-select" value={selectedCity} className="form-outline f-select" onChange={handleCityChange}>
               <option value="all">All</option>
               {getCityOptionsByState(selectedState).map((city) => (
                 <option key={city.value} value={city.value}>
@@ -160,7 +155,7 @@ const CityPortal = () => {
             </select>
           </div>
           <div className="page-display">
-            <h4 className="total-rows">Total Healthcare Centers = {totalRows}</h4>
+            <h4 className="total-rows">Total Products = {totalRows}</h4>
             <h4 className="right">
               <i>
                 Displaying Page {currentPage} of {totalPages}
@@ -172,34 +167,44 @@ const CityPortal = () => {
               <thead>
                 <tr>
                   <th>Sl No.</th>
-                  <th>Name</th>
-                  <th>Infrastructure & Services</th>
+                  <th>Company Name</th>
                   <th>State</th>
                   <th>City</th>
-                  <th>Contact Name</th>
-                  <th>Role</th>
-                  <th>Contact Email</th>
-                  <th>Contact Number</th>
+                  <th>Address</th>
+                  <th>Website</th>
+                  <th>Product Name</th>
+                  <th>Product Code</th>
+                  <th>Description</th>
+                  <th>HSN Code</th>
+                  <th>Quantity Sets</th>
+                  <th>Unit Price</th>
+                  <th>Total Price</th>
+                  <th>GST</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {displayedHospitals.map((hospital, index) => (
-                  <tr key={hospital._id}>
+                {displayedProducts.map((product, index) => (
+                  <tr key={product._id}>
                     <td>{(currentPage - 1) * pageSize + index + 1}</td>
-                    <td>{hospital.name}</td>
-                    <td>{hospital.infraSer}</td>
-                    <td>{hospital.state}</td>
-                    <td>{hospital.city}</td>
-                    <td>{hospital.docName}</td>
-                    <td>{hospital.docSpez}</td>
-                    <td>{hospital.mail}</td>
-                    <td>{hospital.phone}</td>
+                    <td>{product.companyName}</td>
+                    <td>{product.state}</td>
+                    <td>{product.city}</td>
+                    <td>{product.address}</td>
+                    <td>{product.website}</td>
+                    <td>{product.productName}</td>
+                    <td>{product.productCode}</td>
+                    <td>{product.description}</td>
+                    <td>{product.hsnCode}</td>
+                    <td>{product.qtySets}</td>
+                    <td>{product.unitPrice}</td>
+                    <td>{product.totalPrice}</td>
+                    <td>{product.GST}</td>
                     <td>
-                      <button className="edit-button" onClick={() => handleEditHospital(hospital)}>
+                      <button className="edit-button" onClick={() => handleEditProduct(product)}>
                         <i className="fas fa-pencil-alt"></i>
                       </button>
-                      <button className="delete-button" onClick={() => handleDeleteHospital(hospital._id)}>
+                      <button className="delete-button" onClick={() => handleDeleteProduct(product._id)}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                       </button>
                     </td>
@@ -223,9 +228,9 @@ const CityPortal = () => {
         </div>
       </div>
       {editFormVisible && (
-        <EditHospitalForm
-          hospital={selectedHospital}
-          onUpdate={(id, updatedData) => handleUpdateHospital(id, updatedData)}
+        <EditProductForm
+          product={selectedProduct}
+          onUpdate={(id, updatedData) => handleUpdateProduct(id, updatedData)}
           onCancel={() => setEditFormVisible(false)}
         />
       )}
@@ -234,4 +239,4 @@ const CityPortal = () => {
   );
 };
 
-export default CityPortal;
+export default ProductPortal;

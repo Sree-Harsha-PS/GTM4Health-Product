@@ -234,18 +234,20 @@ select {
   flex-direction: row;
   margin-left: auto;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: .5rem;
   border: 1px solid #000;
+  background-color: #dde6ed ;
 }
 
 .tnc input[type="checkbox"] {
   margin-left: 1rem;
+  font-size: large;
 }
 
 .tnc label {
   color: #555;
   font-size: 16px;
-  margin-right: 1rem;
+  margin-right: 3rem;
   width: 100%;
 }
 
@@ -455,6 +457,10 @@ button[type="submit"]:hover {
 
 .menu-text {
   margin-left: 25px;
+  width: 35vh;
+  display: inline;
+  direction: flex;
+  flex-direction: column;
 }
 
 .dashboard {
@@ -472,7 +478,7 @@ button[type="submit"]:hover {
   margin-left: 250px; /* Adjust this value based on the menu bar width */
   padding: 20px;
   /*240vh*/
-  min-height: 150vh;
+  min-height: 200vh;
   height: auto;
   /* max-height: 400vh; */
   /* margin-bottom: 100px; Adjust this value based on the footer height */
@@ -495,7 +501,7 @@ button[type="submit"]:hover {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
-  height: 130vh; /* Adjust the value based on the combined height of the header and footer */
+  height: 160vh; /* Adjust the value based on the combined height of the header and footer */
   position: absolute;
   left: 0;
   top: 150px; /* Adjust the value based on the header height */
@@ -935,8 +941,8 @@ form.hospital-f .hsubtn {
   padding: 0.4rem;
   text-align: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 
@@ -1038,6 +1044,154 @@ form.hospital-f .hsubtn {
   outline: none;
   border-color: #0066cc;
 }
+
+/*adbar*/
+.adbar {
+  background-color: lightblue;
+  color: darkblue;
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 150px; /* Adjust the value based on the header height */
+  padding: 10px;
+  overflow-y: auto;
+  overflow: visible;
+}
+
+.menu-item {
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-item:hover {
+  color: white;
+  background-color: #05BFDB;
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.menu-link {
+  text-decoration: none;
+  background-color: lightblue;
+  color: darkblue;
+}
+
+.sub-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  background-color: #f2f2f2;
+  padding: .5rem;
+  z-index: 2;
+  width: 30vh; /* Adjusted */
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item:hover .sub-menu {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(0%);
+  z-index: 2;
+}
+
+.sub-menu-item {
+  white-space: normal; /* Changed */
+  /* margin-bottom: 10px; */
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid darkblue;
+  padding: .8rem;
+}
+
+.sub-menu-item a {
+  color: darkblue;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom: 1px solid darkblue;
+  word-wrap: break-word; /* Added */
+}
+
+.sub-menu-item a:hover {
+  color: white;
+  background-color: #05BFDB;
+  transform: scale(1.2);
+}
+
+.sub-menu-item:hover{
+  color: white;
+  background-color: #05BFDB;
+  transform: scale(1.2);
+}
+
+.healthcare-menu {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.medtech-menu {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.product-menu {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/*filter*/
+
+.filter-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.f-select{
+  width: 33.3333%;
+  gap: 3rem;
+  margin-right: 3rem;
+}
+
+.f-label{
+  gap: 3rem;
+  margin-right: .8rem;
+}
+
+.home-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
 
 /* Add additional styles as needed */
 
