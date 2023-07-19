@@ -141,8 +141,8 @@ const DealerPortal = () => {
             <h1 className="page-title-child">MedTech-Companies</h1>
           </div>
           <div className="filter-container">
-            <label htmlFor="state-select">State:</label>
-            <select id="state-select" value={selectedState} className="form-outline" onChange={handleStateChange}>
+            <label className="f-label" htmlFor="state-select">State:</label>
+            <select id="state-select" value={selectedState} className="form-outline f-select" onChange={handleStateChange}>
               <option value="all">All</option>
               {stateOptions.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -150,8 +150,8 @@ const DealerPortal = () => {
                 </option>
               ))}
             </select>
-            <label htmlFor="city-select">City:</label>
-            <select id="city-select" value={selectedCity} className="form-outline" onChange={handleCityChange}>
+            <label className="f-label" htmlFor="city-select">City:</label>
+            <select id="city-select" value={selectedCity} className="form-outline f-select" onChange={handleCityChange}>
               <option value="all">All</option>
               {getCityOptionsByState(selectedState).map((city) => (
                 <option key={city.value} value={city.value}>
