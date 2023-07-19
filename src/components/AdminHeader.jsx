@@ -30,9 +30,9 @@ const AdminHeader = () => {
           ></i>
           {adminMenuOpen && (
             <div className="user-menu-items">
-              <AdminLogoutButton />
-              <Settings />
               <Help />
+              <Settings />
+              <AdminLogoutButton />
             </div>
           )}
         </div>
