@@ -15,7 +15,8 @@ const LogoutButton = () => {
 
   return (
     <button className="user-menu-item" onClick={handleLogout}>
-      <i className="fas fa-sign-out-alt"></i> Logout
+      <i className="fas fa-power-off"></i> Sign Out
+      {/*fas fa-sign-out-alt*/}
     </button>
   );
 };
