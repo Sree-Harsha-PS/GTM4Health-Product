@@ -4,7 +4,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './Header';
+import HeaderIn from './HeaderIn';
 import Footer from './Footer';
 
 const Signup = () => {
@@ -83,7 +83,7 @@ const Signup = () => {
 
   return (
   <div className='page-view'>
-    <Header />
+    <HeaderIn />
     <div className="signupPage">
       <div className="signup-container">
         <h1>Sign Up</h1>
@@ -147,7 +147,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-field">
-              <label htmlFor="role">Your role* :</label>
+              <label htmlFor="role">Your Role* :</label>
               <select
                 id="role"
                 value={role}
@@ -155,7 +155,7 @@ const Signup = () => {
                 required
               >
                 <option disabled hidden value="">
-                  Choose your role
+                  Choose your Role
                 </option>
                 <option value="Healthcare Entrepreneur">
                   Healthcare Entrepreneur
