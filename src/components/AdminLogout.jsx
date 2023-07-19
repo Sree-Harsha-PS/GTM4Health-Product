@@ -15,7 +15,7 @@ const AdminLogoutButton = () => {
 
   return (
     <button className="user-menu-item" onClick={handleLogout}>
-      <i className="fas fa-sign-out-alt"></i> Admin Logout
+      <i className="fas fa-power-off"></i> Sign Out
     </button>
   );
 };
