@@ -66,7 +66,7 @@ const AdminMenuBar = () => {
         ref={healthcareMenuRef}
       >
         <i className="fas fa-hospital menu-icon"></i>
-        <span className="menu-text">Manage Healthcare</span>
+        <span className="menu-text">Manage Healthcare Centres</span>
         {isHealthcareMenuOpen && (
           <div className="sub-menu healthcare-menu">
             <a href="/admin/dashboard/Add-Hospital" className="sub-menu-item menu-link">
