@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header';
+import HeaderIn from './HeaderIn';
 import Footer from './Footer';
 
 const LoginPage = () => {
@@ -40,7 +40,7 @@ const LoginPage = () => {
   
   return (
     <div className='page-view'>
-      <Header />
+      <HeaderIn />
       <div className="login-container">
         <h1 className="signup-title"> User <span className='blue-t'>LogIn</span></h1>
         <form onSubmit={handleLogin}>
