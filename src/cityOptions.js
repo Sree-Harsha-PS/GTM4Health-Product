@@ -201,7 +201,7 @@ export const stateOptions  = [
         { value: 'Ballari (Bellary)', label: 'Ballari (Bellary)' },
         { value: 'Belagavi (Belgaum)', label: 'Belagavi (Belgaum)' },
         { value: 'Bengaluru (Rural)', label: 'Bengaluru (Rural)' },
-        { value: 'Bengaluru (Urban)', label: 'Bengaluru (Urban)' },
+        { value: 'Bengaluru', label: 'Bengaluru' },
         { value: 'Bidar', label: 'Bidar' },
         { value: 'Chamarajanagar', label: 'Chamarajanagar' },
         { value: 'Chikkaballapur', label: 'Chikkaballapur' },
