@@ -102,39 +102,41 @@ const Dealers = () => {
             <h1>Add MedTech-Companies</h1>
             {renderDealerStatusMessage()}
             <form onSubmit={handleSubmit} className="hospital-f">
-              <div className="form-group">
-                <label htmlFor="state">State* :</label>
-                <select
-                  id="state"
-                  value={state}
-                  onChange={handleStateChange}
-                  className="form-outline"
-                >
-                  <option value="" disabled hidden>
-                    Select State
-                  </option>
-                  {stateOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+              <div className='filter-container'>
+                <div className="form-group">
+                  <label className='f-label' htmlFor="state">State* :</label>
+                  <select
+                    id="state"
+                    value={state}
+                    onChange={handleStateChange}
+                    className="form-outline f-select wd50"
+                  >
+                    <option value="" disabled hidden>
+                      Select State
                     </option>
-                  ))}
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="city">City* :</label>
-                <select
-                  id="city"
-                  required
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  className="form-outline"
-                >
-                  <option value="" disabled hidden>
-                    Select City
-                  </option>
-                  {renderCityOptions()}
-                </select>
-              </div>
+                    {stateOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label className='f-label' htmlFor="city">City* :</label>
+                  <select
+                    id="city"
+                    required
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="form-outline f-select wd50"
+                  >
+                    <option value="" disabled hidden>
+                      Select City
+                    </option>
+                    {renderCityOptions()}
+                  </select>
+                </div>
+                </div>
               <div className="form-group">
                 <label htmlFor="name">Company Name* :</label>
                 <input
