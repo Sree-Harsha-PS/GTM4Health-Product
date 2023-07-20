@@ -9,7 +9,7 @@ const useAuth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user is authenticated (you can use your own logic)
+    // Check if the user is authenticated 
     const token = localStorage.getItem('token');
     if (token) {
       setIsAuthenticated(true);

@@ -501,7 +501,7 @@ button[type="submit"]:hover {
   background-color: lightblue;
   color: darkblue;
   width: 250px;
-  height: 160vh; /* Adjust the value based on the combined height of the header and footer */
+  height: 90vh; /* Adjust the value based on the combined height of the header and footer */
   position: absolute;
   left: 0;
   top: 150px; /* Adjust the value based on the header height */
