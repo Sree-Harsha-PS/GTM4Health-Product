@@ -25,6 +25,8 @@ import Dealers from './AdminDealers';
 import DealerPortal from './AdminViewDealer';
 import Products from './AdminProducts';
 import ProductPortal from './AdminViewProducts';
+import StartupForm from './AdminStartups';
+import StartupPortal from './AdminViewStartup';
 //import PrivateRoute from './components/Privateroute';
 
 //Entry Function into the Product
@@ -55,6 +57,8 @@ export default function App() {
         <Route path='admin/dashboard/View-MedTech-Companies' element={<DealerPortal />} />
         <Route path='admin/dashboard/Add-Products' element={<Products />} />
         <Route path='admin/dashboard/View-Products' element={<ProductPortal />} />
+        <Route path='admin/dashboard/Add-Startups' element={<StartupForm />} />
+        <Route path='admin/dashboard/View-Startups' element={<StartupPortal />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path='/termsofuse' element={<Terms />} />
