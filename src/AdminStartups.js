@@ -132,6 +132,8 @@ const StartupForm = () => {
                   </option>
                   <option value="Cancer Care">Cancer Care</option>
                   <option value="Kidney Care">Kidney Care</option>
+                  <option value="Radiology">Radiology Products</option>
+                  <option value="Surgery">Surgery Products</option>
                 </select>
               </div>
               <button type="submit" className="hsubtn login-btn">
