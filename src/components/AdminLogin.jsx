@@ -6,6 +6,10 @@ import axios from 'axios';
 // import Header from './Header';
 import Footer from './Footer';
 import LogoHeader from './Logoheader';
+// require('dotenv').config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+console.log("process.env", process.env.BASE_URL);
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
@@ -56,7 +60,7 @@ const AdminLoginPage = () => {
   
     try {
       // Make a POST request to the server to authenticate the admin
-      const response = await axios.post('http://localhost:5000/api/admin/login', {
+      const response = await axios.post('${process.env.BASE_URL}/api/admin/login', {
         email,
         password,
       });

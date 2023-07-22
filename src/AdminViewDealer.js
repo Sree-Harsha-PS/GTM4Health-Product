@@ -6,6 +6,10 @@ import useAuth from "./components/useAuth";
 import axios from "axios";
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
 import EditDealerForm from "./AdminUpdateDealer";
+// require('dotenv').config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 const DealerPortal = () => {
   const isAuthenticated = useAuth();
@@ -30,7 +34,7 @@ const DealerPortal = () => {
   }, [selectedState]);
 
   const fetchDealers = async () => {
-    let url = 'http://localhost:5000/api/admin/dashboard/Dealers/dealers-portal?';
+    let url = '${process.env.BASE_URL}/api/admin/dashboard/Dealers/dealers-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -63,7 +67,7 @@ const DealerPortal = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/dashboard/Dealers/delete-dealer/${id}`);
+      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Dealers/delete-dealer/${id}`);
       setDealers(dealers.filter((dealer) => dealer._id !== id));
       console.log("Dealer deleted successfully");
     } catch (error) {
@@ -83,7 +87,7 @@ const DealerPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`http://localhost:5000/api/admin/dashboard/Dealers/update-dealers/${id}`, requestData);
+      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Dealers/update-dealers/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedDealer(null);
       fetchDealers();

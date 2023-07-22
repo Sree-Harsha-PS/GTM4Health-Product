@@ -4,6 +4,9 @@ import Footer from './components/Footer';
 import AdminHeader from './components/AdminHeader';
 import AdminMenuBar from './components/AdminMenubar';
 import { stateOptions, getCityOptionsByState } from './cityOptions';
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 const Products = () => {
   const [companyName, setCompanyName] = useState('');
@@ -29,7 +32,7 @@ const Products = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/dashboard/Products', {
+      await axios.post('${process.env.BASE_URL}/api/admin/dashboard/Products', {
         companyName,
         website,
         address,

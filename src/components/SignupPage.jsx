@@ -6,6 +6,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeaderIn from './HeaderIn';
 import Footer from './Footer';
+// require('dotenv').config();
+
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -31,7 +33,7 @@ const Signup = () => {
 
     try {
       // Make a POST request to the server to create a new user
-      const response = await axios.post('http://localhost:5000/api/signup', {
+      const response = await axios.post('${process.env.BASE_URL}/api/signup', {
         name,
         phone,
         email,

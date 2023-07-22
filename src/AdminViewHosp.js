@@ -5,6 +5,10 @@ import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
 import EditHospitalForm from "./AdminUpdateHosp";
+// require('dotenv').config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 const HospitalPortal = () => {
   const isAuthenticated = useAuth();
@@ -25,7 +29,7 @@ const HospitalPortal = () => {
   const fetchHospitals = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}`
+        `${process.env.BASE_URL}/api/hospital-portal?page=${currentPage}&limit=${pageSize}`
       );
       setHospitals(response.data.hospitals);
       setTotalRows(response.data.totalRows);
@@ -42,7 +46,7 @@ const HospitalPortal = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
+      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
       setHospitals(hospitals.filter((hospital) => hospital._id !== id));
       console.log("Hospital deleted successfully");
     } catch (error) {
@@ -62,7 +66,7 @@ const HospitalPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`http://localhost:5000/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
+      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedHospital(null);
       fetchHospitals();

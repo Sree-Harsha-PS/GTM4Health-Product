@@ -4,6 +4,10 @@ import Footer from './components/Footer';
 import AdminHeader from './components/AdminHeader';
 import AdminMenuBar from './components/AdminMenubar';
 import { stateOptions, getCityOptionsByState } from './cityOptions';
+// require('dotenv').config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 const Dealers = () => {
   const [name, setName] = useState('');
@@ -27,7 +31,7 @@ const Dealers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/admin/dashboard/Dealers', {
+      await axios.post('${process.env.BASE_URL}/api/admin/dashboard/Dealers', {
         name,
         web,
         address,

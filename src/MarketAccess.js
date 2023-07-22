@@ -4,6 +4,8 @@ import Header2 from "./components/Header2";
 import Menubar from "./components/MenuBar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
+// require('dotenv').config();
+
 
 
 const MarketAccess = () => {
@@ -28,7 +30,7 @@ const MarketAccess = () => {
 const fetchHospitals = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/hospital-portal?page=${currentPage}&limit=${pageSize}`
+      `${process.env.BASE_URL}/api/hospital-portal?page=${currentPage}&limit=${pageSize}`
     );
     setHospitals(response.data.hospitals);
     setTotalRows(response.data.totalRows);

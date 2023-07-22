@@ -5,6 +5,11 @@ import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
+import EditHospitalForm from "./AdminUpdateHosp"
+// require('dotenv').config();
+// import dotenv from 'dotenv';
+// dotenv.config();
+
 
 const CityPortal = () => {
   const isAuthenticated = useAuth();
@@ -29,7 +34,7 @@ const CityPortal = () => {
   }, [selectedState]);
 
   const fetchHospitals = async () => {
-    let url = 'http://localhost:5000/api/hospital-portal?';
+    let url = '${process.env.BASE_URL}/api/hospital-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -62,7 +67,7 @@ const CityPortal = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
+      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
       setHospitals(hospitals.filter((hospital) => hospital._id !== id));
       console.log("Hospital deleted successfully");
     } catch (error) {
@@ -82,7 +87,7 @@ const CityPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`http://localhost:5000/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
+      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedHospital(null);
       fetchHospitals();
