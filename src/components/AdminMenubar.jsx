@@ -5,37 +5,30 @@ const AdminMenuBar = () => {
   const [isMedTechMenuOpen, setIsMedTechMenuOpen] = useState(false);
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isStartupsMenuOpen, setIsStartupsMenuOpen] = useState(false);
+  const [isGTMMenuOpen, setIsGTMMenuOpen] = useState(false);
 
   const healthcareMenuRef = useRef(null);
   const medTechMenuRef = useRef(null);
   const productMenuRef = useRef(null);
   const startupsMenuRef = useRef(null);
+  const gtmMenuRef = useRef(null);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      if (
-        healthcareMenuRef.current &&
-        !healthcareMenuRef.current.contains(event.target)
-      ) {
+      if (healthcareMenuRef.current && !healthcareMenuRef.current.contains(event.target)) {
         setIsHealthcareMenuOpen(false);
       }
-      if (
-        medTechMenuRef.current &&
-        !medTechMenuRef.current.contains(event.target)
-      ) {
+      if (medTechMenuRef.current && !medTechMenuRef.current.contains(event.target)) {
         setIsMedTechMenuOpen(false);
       }
-      if (
-        productMenuRef.current &&
-        !productMenuRef.current.contains(event.target)
-      ) {
+      if (productMenuRef.current && !productMenuRef.current.contains(event.target)) {
         setIsProductMenuOpen(false);
       }
-      if (
-        startupsMenuRef.current &&
-        !startupsMenuRef.current.contains(event.target)
-      ) {
+      if (startupsMenuRef.current && !startupsMenuRef.current.contains(event.target)) {
         setIsStartupsMenuOpen(false);
+      }
+      if (gtmMenuRef.current && !gtmMenuRef.current.contains(event.target)) {
+        setIsGTMMenuOpen(false);
       }
     };
 
@@ -60,6 +53,10 @@ const AdminMenuBar = () => {
 
   const handleStartupsMenuClick = () => {
     setIsStartupsMenuOpen(!isStartupsMenuOpen);
+  };
+
+  const handleGTMMenuClick = () => {
+    setIsGTMMenuOpen(!isGTMMenuOpen);
   };
 
   return (
@@ -164,6 +161,27 @@ const AdminMenuBar = () => {
             <a href="/admin/dashboard/View-Startups" className="sub-menu-item menu-link">
               <i className="fas fa-clipboard-list sub-menu-icon"></i>
               <span className="menu-text">View & Update Startups</span>
+            </a>
+          </div>
+        )}
+      </div>
+      {/* GTM Services Menu */}
+      <div
+        className={`menu-item ad-menu-item ${isGTMMenuOpen ? "active" : ""}`}
+        onClick={handleGTMMenuClick}
+        ref={gtmMenuRef}
+      >
+        <i className="fas fa-tools menu-icon"></i>
+        <span className="menu-text">GTM Services</span>
+        {isGTMMenuOpen && (
+          <div className="sub-menu gtm-menu">
+            <a href="/admin/dashboard/Create-Project" className="sub-menu-item menu-link">
+              <i className="fas fa-plus sub-menu-icon"></i>
+              <span className="menu-text">Create Project</span>
+            </a>
+            <a href="/admin/dashboard/Update-Project" className="sub-menu-item menu-link">
+              <i className="fas fa-edit sub-menu-icon"></i>
+              <span className="menu-text">Update Project</span>
             </a>
           </div>
         )}
