@@ -4,6 +4,7 @@ import AdminHeader from "./components/AdminHeader";
 import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
+import EditHospitalForm from "./AdminUpdateHosp"
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
 import EditHospitalForm from "./AdminUpdateHosp"
 // require('dotenv').config();
@@ -34,7 +35,7 @@ const CityPortal = () => {
   }, [selectedState]);
 
   const fetchHospitals = async () => {
-    let url = '${process.env.BASE_URL}/api/hospital-portal?';
+    let url = 'http://localhost:5000/api/hospital-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);

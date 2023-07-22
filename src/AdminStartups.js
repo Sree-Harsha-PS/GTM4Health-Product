@@ -3,9 +3,6 @@ import axios from 'axios';
 import Footer from './components/Footer';
 import AdminHeader from './components/AdminHeader';
 import AdminMenuBar from './components/AdminMenubar';
-// import dotenv from 'dotenv';
-// dotenv.config();
-// require('dotenv').config();
 
 const StartupForm = () => {
   const [startupName, setStartupName] = useState('');
@@ -17,7 +14,7 @@ const StartupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('${process.env.BASE_URL}/api/admin/dashboard/Startups', {
+      await axios.post('http://localhost:5000/api/admin/dashboard/Startups', {
         startupName,
         website,
         productStage,
@@ -135,6 +132,8 @@ const StartupForm = () => {
                   </option>
                   <option value="Cancer Care">Cancer Care</option>
                   <option value="Kidney Care">Kidney Care</option>
+                  <option value="Radiology">Radiology Products</option>
+                  <option value="Surgery">Surgery Products</option>
                 </select>
               </div>
               <button type="submit" className="hsubtn login-btn">

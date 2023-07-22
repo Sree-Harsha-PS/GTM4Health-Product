@@ -6,10 +6,6 @@ import useAuth from "./components/useAuth";
 import axios from "axios";
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
 import EditProductForm from "./AdminUpdateProduct";
-// require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
-
 
 const ProductPortal = () => {
   const isAuthenticated = useAuth();
@@ -34,7 +30,7 @@ const ProductPortal = () => {
   }, [selectedState]);
 
   const fetchProducts = async () => {
-    let url = '${process.env.BASE_URL}/api/admin/dashboard/Products/products-portal?';
+    let url = 'http://localhost:5000/api/admin/dashboard/Products/products-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -65,7 +61,7 @@ const ProductPortal = () => {
     }
 
     try {
-      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Products/delete-product/${id}`);
+      await axios.delete(`http://localhost:5000/api/admin/dashboard/Products/delete-product/${id}`);
       setProducts(products.filter((product) => product._id !== id));
       console.log("Product deleted successfully");
     } catch (error) {
@@ -85,7 +81,7 @@ const ProductPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Products/update-product/${id}`, requestData);
+      await axios.put(`http://localhost:5000/api/admin/dashboard/Products/update-product/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedProduct(null);
       fetchProducts();

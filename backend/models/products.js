@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// Cascade Menubar & Add Products v1.2.14
 
 const productSchema = new mongoose.Schema({
   companyName: {

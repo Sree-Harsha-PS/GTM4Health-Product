@@ -5,11 +5,6 @@ import AdminMenuBar from "./components/AdminMenubar";
 import EditStartupForm from "./AdminUpdateStartup";
 import useAuth from "./components/useAuth";
 import axios from "axios";
-// require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
-
-
 
 const StartupPortal = () => {
   const isAuthenticated = useAuth();
@@ -28,7 +23,7 @@ const StartupPortal = () => {
   }, [isAuthenticated, currentPage]);
 
   const fetchStartups = async () => {
-    let url = '${process.env.BASE_URL}/api/admin/dashboard/Startups/startups-portal?';
+    let url = 'http://localhost:5000/api/admin/dashboard/Startups/startups-portal?';
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -70,7 +65,7 @@ const StartupPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Startups/update-startup/${id}`, requestData);
+      await axios.put(`http://localhost:5000/api/admin/dashboard/Startups/update-startup/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedStartup(null);
       fetchStartups();
@@ -88,7 +83,7 @@ const StartupPortal = () => {
     }
 
     try {
-      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Startups/delete-startup/${id}`);
+      await axios.delete(`http://localhost:5000/api/admin/dashboard/Startups/delete-startup/${id}`);
       setStartups(startups.filter((startup) => startup._id !== id));
       console.log("Startup deleted successfully");
     } catch (error) {
