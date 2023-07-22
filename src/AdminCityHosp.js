@@ -4,6 +4,7 @@ import AdminHeader from "./components/AdminHeader";
 import AdminMenuBar from "./components/AdminMenubar";
 import useAuth from "./components/useAuth";
 import axios from "axios";
+import EditHospitalForm from "./AdminUpdateHosp"
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
 
 const CityPortal = () => {
