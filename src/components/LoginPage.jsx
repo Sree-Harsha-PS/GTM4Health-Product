@@ -7,13 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import HeaderIn from './HeaderIn';
 import Footer from './Footer';
-require('dotenv').config();
+// require('dotenv').config();
 // import dotenv from 'dotenv';
 // dotenv.config();
 // import dotenv from "dotenv"; // Import dotenv
 
 // dotenv.config(); // Load environment variables from .env file
-console.log("process.env", process.env.BASE_URL);
+console.log("process.env", process.env.REACT_APP_BASE_URL);
 
 
 
@@ -31,7 +31,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await axios.post('${process.env.BASE_URL}/api/login', {
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/login`, {
         email,
         password,
       });

@@ -6,11 +6,14 @@ import useAuth from "./components/useAuth";
 import axios from "axios";
 import EditHospitalForm from "./AdminUpdateHosp"
 import { stateOptions, getCityOptionsByState } from "./cityOptions";
-import EditHospitalForm from "./AdminUpdateHosp"
+
 // require('dotenv').config();
 // import dotenv from 'dotenv';
 // dotenv.config();
+// const baseUrl = process.env.REACT_APP_BASE_URL|| 'default-value';
+// console.log(baseUrl);
 
+// console.log(baseUrl)
 
 const CityPortal = () => {
   const isAuthenticated = useAuth();
@@ -35,7 +38,7 @@ const CityPortal = () => {
   }, [selectedState]);
 
   const fetchHospitals = async () => {
-    let url = 'http://localhost:5000/api/hospital-portal?';
+    let url = `${process.env.REACT_APP_BASE_URL}/api/hospital-portal?`;
   
     const params = new URLSearchParams();
     params.append('page', currentPage);
@@ -68,7 +71,7 @@ const CityPortal = () => {
     }
 
     try {
-      await axios.delete(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
+      await axios.delete(`${process.env.REACT_APP_BASE_URL}/api/admin/dashboard/Add-Hospital/delete-hospital/${id}`);
       setHospitals(hospitals.filter((hospital) => hospital._id !== id));
       console.log("Hospital deleted successfully");
     } catch (error) {
@@ -88,7 +91,7 @@ const CityPortal = () => {
         data: updatedData,
       };
 
-      await axios.put(`${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
+      await axios.put(`${process.env.REACT_APP_BASE_URL}/api/admin/dashboard/Add-Hospital/hospitals/${id}`, requestData);
       setEditFormVisible(false);
       setSelectedHospital(null);
       fetchHospitals();
@@ -105,12 +108,14 @@ const CityPortal = () => {
   const handlePrevPage = () => {
     if (!isFirstPage) {
       setCurrentPage(currentPage - 1);
+      window.scrollTo(0, 0);
     }
   };
 
   const handleNextPage = () => {
     if (!isLastPage) {
       setCurrentPage(prevPage => prevPage + 1);
+      window.scrollTo(0, 0);
     }
   };
   
@@ -123,6 +128,12 @@ const CityPortal = () => {
 
   const handleCityChange = (event) => {
     setSelectedCity(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleClearFilters = () => {
+    setSelectedState("all");
+    setSelectedCity("all");
     setCurrentPage(1);
   };
 
@@ -164,6 +175,7 @@ const CityPortal = () => {
                 </option>
               ))}
             </select>
+            <button onClick={handleClearFilters}>Clear Filters</button>
           </div>
           <div className="page-display">
             <h4 className="total-rows">Total Healthcare Centers = {totalRows}</h4>

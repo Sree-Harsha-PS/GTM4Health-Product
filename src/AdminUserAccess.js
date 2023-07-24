@@ -20,7 +20,7 @@ const AdminUserAccess = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BASE_URL}/api/users?page=${currentPage}&limit=${pageSize}`
+          `${process.env.REACT_APP_BASE_URL}/api/users?page=${currentPage}&limit=${pageSize}`
         );
         setUsers(response.data.users);
         setTotalRows(response.data.totalRows)
@@ -41,12 +41,14 @@ const AdminUserAccess = () => {
   const handlePrevPage = () => {
     if (!isFirstPage) {
       setCurrentPage(currentPage - 1);
+      window.scrollTo(0, 0);
     }
   };
 
   const handleNextPage = () => {
     if (!isLastPage) {
       setCurrentPage(currentPage + 1);
+      window.scrollTo(0, 0);
     }
   };
 

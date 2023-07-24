@@ -29,7 +29,7 @@ const Hospital = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('${process.env.BASE_URL}/api/admin/dashboard/Add-Hospital', {
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/api/admin/dashboard/Add-Hospital`, {
         name,
         city,
         state,
