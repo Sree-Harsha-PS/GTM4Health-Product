@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { stateOptions, getCityOptionsByState } from "../../cityOptions";
+import { stateOptions, getCityOptionsByState } from "../../../assets/cityOptions";
 
 const EditDealerForm = ({ dealer, onUpdate, onCancel }) => {
   const [name, setName] = useState(dealer.name);

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/AdminHeader";
-import AdminMenuBar from "../../components/AdminMenubar";
-import useAuth from "../../components/useAuth";
-import axios from "axios";
-import { stateOptions, getCityOptionsByState } from "../../cityOptions";
+
+import axios from 'axios';
+import Footer from "../../layout/pages/Footer"
+import AdminMenuBar from "../../layout/admin/AdminMenubar";
+import useAuth from "../../hooks/useAuth";
+import AdminHeader from "../../layout/admin/AdminHeader";
+
+
+import { stateOptions, getCityOptionsByState } from "../../../assets/cityOptions";
 import EditDealerForm from "./AdminUpdateDealer";
 
 const DealerPortal = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { stateOptions, getCityOptionsByState } from "../../cityOptions";
-import specialitiesData from "../../specialities.json"; // Import the specialities data
+import { stateOptions, getCityOptionsByState } from "../../../assets/cityOptions";
+import specialitiesData from "../../../assets/specialities.json"; // Import the specialities data
 
 const EditHospitalForm = ({ hospital, onUpdate, onCancel }) => {
   const [name, setName] = useState(hospital.name);

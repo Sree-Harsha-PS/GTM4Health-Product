@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/AdminHeader";
-import AdminMenuBar from "../../components/AdminMenubar";
-import useAuth from "../../components/useAuth";
+import Footer from "../../layout/pages/Footer"
+import AdminMenuBar from "../../layout/admin/AdminMenubar";
+import useAuth from "../../hooks/useAuth";
+import AdminHeader from "../../layout/admin/AdminHeader";
+
 import axios from "axios";
 import EditHospitalForm from "./AdminUpdateHosp";
-// require('dotenv').config();
-// require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
+
 
 
 const HospitalPortal = () => {

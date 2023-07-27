@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Footer from "../../layout/pages/Footer"
-import AdminMenuBar from "../../components/AdminMenubar";
+import AdminMenuBar from "../../layout/admin/AdminMenubar";
 import useAuth from "../../hooks/useAuth";
 import AdminHeader from "../../layout/admin/AdminHeader";
 
-import { stateOptions, getCityOptionsByState } from '../../cityOptions';
-import specialitiesData from '../../specialities.json'; // Import the specialities data
+import { stateOptions, getCityOptionsByState } from '../../../assets/cityOptions';
+import specialitiesData from '../../../assets/specialities.json'; // Import the specialities data
 
 const AdminHospital = () => {
   const [name, setName] = useState('');
