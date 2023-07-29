@@ -6,13 +6,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import HeaderIn from '../layout/users/HeaderIn';
-import Footer from './Footer';
-// require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
-// import dotenv from "dotenv"; // Import dotenv
+import Footer from "../layout/pages/Footer";
 
-// dotenv.config(); // Load environment variables from .env file
 console.log("process.env", process.env.REACT_APP_BASE_URL);
 
 

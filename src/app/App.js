@@ -3,7 +3,7 @@
 // All Project Modules are being imported to this page.
 
 import React from 'react';
-import './styles.css';
+import '../assets/styles.css';
 import Content from '../users/home/Content';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from '../log/SignupPage';
@@ -15,22 +15,22 @@ import SettingsPage from '../common/Settings';
 import HelpPage from '../common/Help';
 import AdminLoginPage from '../log/AdminLogin';
 import AdminDashboard from '../admin/pages/AdminDash';
-import Hospital from './admin/healthcare/AdminHospital';
+import Hospital from '../admin/services/healthcare/AdminHospital';
 import AdminUserAccess from '../admin/users/AdminUserAccess';
 import AdminFeatures from '../admin/pages/AdminFeatures';
-import HospitalPortal from './admin/healthcare/AdminViewHosp';
+import HospitalPortal from '../admin/services/healthcare/AdminViewHosp';
 import MarketAccess from '../users/services/marketaccess/MarketAccess';
-import CityPortal from './admin/healthcare/AdminCityHosp';
-import Dealers from './admin/medtech/AdminDealers';
-import DealerPortal from './admin/medtech/AdminViewDealer';
-import Products from './admin/products/AdminProducts';
-import ProductPortal from './admin/products/AdminViewProducts';
-import StartupForm from './admin/startups/AdminStartups';
-import StartupPortal from './admin/startups/AdminViewStartup';
-import CreateProject from './admin/projects/AdminProjects';
-import UpdateProject from './admin/projects/AdminUpdateProjects';
+import CityPortal from '../admin/services/healthcare/AdminCityHosp';
+import Dealers from '../admin/services/medtech/AdminDealers';
+import DealerPortal from '../admin/services/medtech/AdminViewDealer';
+import Products from '../admin/services/products/AdminProducts';
+import ProductPortal from '../admin/services/products/AdminViewProducts';
+import StartupForm from '../admin/services/startups/AdminStartups';
+import StartupPortal from '../admin/services/startups/AdminViewStartup';
+import CreateProject from '../admin/services/projects/AdminProjects';
+import UpdateProject from '../admin/services/projects/AdminUpdateProjects';
 import MarketAccessAll from '../users/services/marketaccess/MarketAccessAll';
-import AdminSaveProject from './admin/projects/AdminSaveProject';
+import AdminSaveProject from '../admin/services/projects/AdminSaveProject';
 import NotFoundPage from '../common/NotFound';
 //import PrivateRoute from './components/Privateroute';
 

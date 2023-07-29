@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/AdminHeader";
-import AdminMenuBar from "../../components/AdminMenubar";
-import startupOptions from "../../startupOptions.json"; // Import the options
+import Footer from "../../../layout/pages/Footer"
+import AdminMenuBar from "../../../layout/admin/AdminMenubar";
+import useAuth from "../../../hooks/useAuth";
+import AdminHeader from "../../../layout/admin/AdminHeader";
+import startupOptions from "../../../assets/startupOptions"; // Import the options
 
 const StartupForm = () => {
   const [startupName, setStartupName] = useState("");

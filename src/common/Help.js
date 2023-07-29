@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Card from "../components/Card";
-import Footer from "./components/Footer";
+import Footer from "../layout/pages/Footer";
 import Header2 from "../layout/users/Header2";
 import MenuBar from "../layout/users/MenuBar";
 

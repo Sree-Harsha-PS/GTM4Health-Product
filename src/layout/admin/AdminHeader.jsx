@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Logo from "./Logo";
-import AdminLogoutButton from "./AdminLogout";
-import Settings from "./Settings";
-import Help from "./Help";
+import Logo from "../../components/Logo";
+import AdminLogoutButton from "../../components/AdminLogout";
+import Settings from "../../components/Settings";
+import Help from "../../components/Help";
 
 const AdminHeader = () => {
   const [searchQuery, setSearchQuery] = useState("");

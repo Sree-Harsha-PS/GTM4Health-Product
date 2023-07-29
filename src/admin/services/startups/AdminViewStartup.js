@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/Footer";
-import AdminHeader from "../../components/AdminHeader";
-import AdminMenuBar from "../../components/AdminMenubar";
+import Footer from "../../../layout/pages/Footer"
+import AdminMenuBar from "../../../layout/admin/AdminMenubar";
+import useAuth from "../../../hooks/useAuth";
+import AdminHeader from "../../../layout/admin/AdminHeader";
 import EditStartupForm from "./AdminUpdateStartup";
-import useAuth from "../../components/useAuth";
 import axios from "axios";
 
 const StartupPortal = () => {

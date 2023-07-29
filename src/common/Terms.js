@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
-import cardsData from "./Features.json";
-import Footer from "./components/Footer";
+import cardsData from "../assets/Features.json";
+import Footer from "../layout/pages/Footer";
 import Header from "../layout/users/Header";
 
 

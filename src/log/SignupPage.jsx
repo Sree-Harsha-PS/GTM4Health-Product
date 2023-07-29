@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeaderIn from '../layout/users/HeaderIn';
-import Footer from './Footer';
-
+import Footer from "../layout/pages/Footer";
 
 
 const Signup = () => {

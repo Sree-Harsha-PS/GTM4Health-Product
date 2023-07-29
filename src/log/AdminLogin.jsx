@@ -1,51 +1,15 @@
-// Needs to clean unwanted code.
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import Header from './Header';
-import Footer from './Footer';
+import Footer from "../layout/pages/Footer";
 import LogoHeader from '../layout/admin/Logoheader';
-// require('dotenv').config();
-// import dotenv from 'dotenv';
-// dotenv.config();
+
 console.log("process.env", process.env.REACT_APP_BASE_URL);
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
-  // const handleLogin = async (e) => {
-  //   e.preventDefault(); // Prevent the default form submission
-  
-  //   // Check if the email and password fields are empty
-  //   if (!email || !password) {
-  //     console.log('Email and password are required');
-  //     return;
-  //   }
-  
-  //   // Check if the entered email and password match the predefined values
-  //   if (email === 'a@a' && password === '123') {
-  //     try {
-  //       // Simulate the API response with a delay
-  //       await new Promise((resolve) => setTimeout(resolve, 1000));
-  
-  //       // Store the token in local storage
-  //       localStorage.setItem('token', 'your_token_here');
-  
-  //       // Redirect to the appropriate dashboard 
-  //       navigate('/admin/dashboard');
-  //     } catch (error) {
-  //       console.error('Login failed', error);
-  //       // Clear the entered password field
-  //       setPassword('');
-  //     }
-  //   } else {
-  //     console.log('Invalid email or password');
-  //   }
-  // };
-  
 
 
 

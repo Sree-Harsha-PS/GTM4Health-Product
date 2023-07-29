@@ -1,9 +1,10 @@
 //User dashboard page
 
 import React, { useState, useEffect } from "react";
-import Footer from "./components/Footer";
+import Footer from "../../layout/pages/Footer";
 import Header2 from "../../layout/users/Header2";
-import useAuth from "./components/useAuth";
+
+import useAuth from "../../hooks/useAuth";
 import MenuBar from "../../layout/users/MenuBar";
 
 const Dashboard = () => {

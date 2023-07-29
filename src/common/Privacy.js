@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
-import Footer from "./components/Footer";
+import Footer from "../layout/pages/Footer";
 import Header from "../layout/users/Header";
 
 

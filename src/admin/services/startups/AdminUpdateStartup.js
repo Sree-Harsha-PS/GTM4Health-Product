@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import startupOptions from "../../startupOptions.json"; // Import the options
+import startupOptions from "../../../assets/startupOptions"; // Import the options
 
 const EditStartupForm = ({ startup, onUpdate, onCancel }) => {
   const [startupName, setStartupName] = useState(startup.startupName);

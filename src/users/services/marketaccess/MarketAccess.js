@@ -1,12 +1,12 @@
 // MarketAccess.js
 
 import React, { useState, useEffect } from "react";
-import Footer from "./components/Footer";
+import Footer from "../../../layout/pages/Footer";
 import Header2 from "../../../layout/users/Header2";
 import Menubar from "../../../layout/users/MenuBar";
-import useAuth from "./components/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
-import { stateOptions, getCityOptionsByState } from "./cityOptions"; // Importing getCityOptionsByState from cityOptions
+import { stateOptions, getCityOptionsByState } from "../../../assets/cityOptions"; // Importing getCityOptionsByState from cityOptions
 
 const MarketAccess = () => {
   const [hospitals, setHospitals] = useState([]);
