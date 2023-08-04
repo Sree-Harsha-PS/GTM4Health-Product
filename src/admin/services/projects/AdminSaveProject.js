@@ -70,11 +70,13 @@ const AdminSaveProject = () => {
     setSelectedProject(e.target.value);
   };
 
+
   const handleMailReport = () => {
     if (selectedProject && projectName && progress) {
+      const email = "sreeharshapolepalli@gmail.com";
       const subject = `Progress Report for ${projectName}`;
-      const body = `Progress Report for ${projectName}:\n${progress}`;
-      const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const body = `Progress Report for ${projectName}:\n\n${progress}`;
+      const mailtoLink = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   
       const anchor = document.createElement('a');
       anchor.href = mailtoLink;
