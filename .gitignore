@@ -23,7 +23,7 @@ creds.js
 .code_sandbox/
  
 # Private Files
-*.json
+
 *.csv
 *.csv.gz
 *.tsv
